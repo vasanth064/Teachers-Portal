@@ -1,0 +1,18 @@
+.greenButton {
+  width: 280px;
+  padding: 1.5rem 1rem;
+  background: rgba(44, 150, 48, 0.9);
+  border-radius: 10px;
+  border: none;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.marginCenter {
+  margin-left: auto;
+  margin-right: auto;
+}

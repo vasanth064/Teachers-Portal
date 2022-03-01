@@ -1,0 +1,11 @@
+.blueButton {
+	position: relative;
+	height: 6rem;
+	width: 14rem;
+	background-color: rgba(0, 19, 255, 40%);
+	border: none;
+}
+.iconButton {
+	height: 3.5rem;
+	width: auto;
+}

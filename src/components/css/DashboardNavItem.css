@@ -1,0 +1,76 @@
+.navContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  left: 2.5rem;
+  margin: 1rem 0;
+  color: black;
+  text-decoration: none;
+  border-radius: 25px 0px 0px 25px;
+}
+.navHeader {
+  display: flex;
+  width: 325px;
+  height: 50px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+.active {
+  background: rgba(255, 255, 255, 0.75);
+  color: black;
+}
+.navHeaderText {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 23px;
+  letter-spacing: 0.07em;
+}
+.navHeaderIcon {
+  margin-left: 5.5rem;
+  margin-right: 1.5rem;
+  font-size: 4rem;
+}
+.subMenuExpandArrow {
+  width: 3rem;
+  height: auto;
+  margin-right: 3.5rem;
+  margin-left: auto;
+}
+.navListContainerN {
+  display: none;
+}
+.navListContainerF {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0 5px auto;
+}
+.navListItem {
+  display: flex;
+  align-items: center;
+  width: 290px;
+  height: 42px;
+  z-index: 2;
+  text-decoration: none;
+  color: black;
+  background: rgba(255, 255, 255, 0.75);
+}
+.navListIcon {
+  font-size: 3rem;
+  margin-left: 15px;
+}
+.navListText {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.07em;
+  margin-left: 20px;
+}
+.navListItem:first-child {
+  border-top-left-radius: 25px;
+}
+.navListItem:last-child {
+  border-bottom-left-radius: 25px;
+}

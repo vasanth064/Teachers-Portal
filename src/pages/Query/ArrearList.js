@@ -1,0 +1,38 @@
+import React from 'react';
+import PageHeader from '../../components/PageHeader';
+import PageContent from '../../components/PageContent';
+import SortBox from '../../components/SortBox';
+import styled from 'styled-components';
+import SearchCard from '../../components/SearchCard';
+import GreenButton from '../../components/GreenButton';
+
+const SearchArea = styled.div`
+display: flex;
+`;
+
+const ArrearList = () => {
+  return <div>
+    <PageHeader text='Arrear Report'/>
+    <PageContent>
+      <SearchArea>
+      <SortBox/>
+      <SearchCard 
+      type='text'
+      width='115rem'
+      height='6rem'
+      borderRadius='0rem 2rem 2rem 0rem'
+      fontSize='2rem'
+      fontWeight='500'
+      />
+    </SearchArea>
+    <GreenButton 
+    height='6rem' 
+    width='24rem' 
+    borderRadius='1rem' 
+    fontSize='2rem' 
+    margin='15rem 60rem'>Get Report</GreenButton>
+    </PageContent>
+  </div>;
+}
+
+export default ArrearList;

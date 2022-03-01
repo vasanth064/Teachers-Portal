@@ -1,0 +1,16 @@
+#content-body {
+	position: sticky;
+	margin-top: 8rem;
+	height: 41rem;
+}
+
+#content-body h1 {
+	position: relative;
+	left: 3.5rem;
+	top: 2rem;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 30px;
+	letter-spacing: 0.07em;
+	color: rgba(0, 0, 0, 100%);
+}

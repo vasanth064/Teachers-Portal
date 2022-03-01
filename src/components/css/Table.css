@@ -1,0 +1,66 @@
+table {
+  background: linear-gradient(
+    100.92deg,
+    rgba(255, 255, 255, 0.36) -1.15%,
+    rgba(255, 255, 255, 0.24) 99.99%
+  );
+  border-collapse: collapse;
+  filter: drop-shadow(6px 6px 18px rgba(0, 0, 0, 0.25));
+  box-sizing: border-box;
+  box-shadow: 4px 4px 24px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  border-style: hidden;
+}
+table::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: url(./../../assets/images/backgrounds/frost.png);
+  mix-blend-mode: overlay;
+  opacity: 0.3;
+  border-radius: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+th {
+  color: black;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 22px;
+  line-height: 33px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  text-align: center;
+  background: #9ab1de;
+}
+td {
+  text-align: center;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 30px;
+  letter-spacing: 0.07em;
+  color: #000000;
+}
+td,
+th {
+  border: 2px solid black;
+  border-bottom-width: 0px;
+  border-top-width: 0px;
+  padding: 1.75rem 0.5rem;
+}
+th:first-child {
+  border-top-left-radius: 20px;
+}
+th:last-child {
+  border-top-right-radius: 20px;
+}
+.tableWrapper {
+  border: 2px solid rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+}

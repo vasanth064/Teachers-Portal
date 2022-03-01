@@ -1,0 +1,26 @@
+.btn{
+    width: 300px;
+    height: 75px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.btn-text{
+    margin: 10px;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 0.07em;
+}
+.active-btn{
+    background:#003F87;
+    color: white;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25));
+}
+.inactive-btn {
+    color:black;
+    background:transparent;
+    border: 3px solid black;
+    box-sizing: border-box;
+}

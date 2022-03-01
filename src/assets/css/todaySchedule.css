@@ -1,0 +1,4 @@
+.todayScheduleList {
+  display: flex;
+  flex-wrap: wrap;
+}

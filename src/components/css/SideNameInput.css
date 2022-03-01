@@ -1,0 +1,71 @@
+.SideNameInputGroup {
+  display: flex;
+  margin: 0 5rem 5rem 5rem;
+  z-index: 10;
+  width: auto;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+.SideName {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: 0.07em;
+  color: #000000;
+  margin-right: auto;
+}
+.SideNameInput {
+  display: flex;
+  outline: none;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 26px;
+  letter-spacing: 0.07em;
+}
+.SideNameTextArea {
+  outline: none;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 26px;
+  letter-spacing: 0.07em;
+  border-radius: 10px;
+  resize: none;
+  border: 2px solid gray;
+  background: #ffffff;
+  padding: 2rem 2rem;
+}
+.PostedLeavePrintoutContainer input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='date'] {
+  border-radius: 10px;
+  height: 5rem;
+  border: 2px solid gray;
+  background: #ffffff;
+  width: 45rem;
+  padding: 0 2rem;
+}
+.PostedLeavePrintoutContainer input[type='file']::-webkit-file-upload-button {
+  border-radius: 10px;
+  height: 5rem;
+  padding: 0 5rem;
+  border: 2px solid gray;
+  outline: none;
+}
+.PostedLeavePrintoutContainer input[type='file']::file-selector-button {
+  border-radius: 10px;
+  height: 5rem;
+  padding: 0 5rem;
+  border: 2px solid gray;
+  outline: none;
+}
+.PostedLeavePrintoutContainer input[type='file']::-ms-browse {
+  border-radius: 10px;
+  height: 5rem;
+  padding: 0 5rem;
+  border: 2px solid gray;
+  outline: none;
+}

@@ -1,0 +1,20 @@
+.loginInputGroup {
+  margin-top: 5rem;
+}
+.loginInputName {
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: 0.07em;
+}
+.loginInput {
+  width: 100%;
+  height: 75px;
+  background: #ffffff;
+  border: 3px solid #797979;
+  box-sizing: border-box;
+  border-radius: 15px;
+  font-size: 28px;
+  line-height: 28px;
+  padding: 0 15px;
+  letter-spacing: 0.07em;
+}

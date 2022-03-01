@@ -1,0 +1,65 @@
+.todayScheduleItem {
+  width: 350px;
+  height: 150px;
+  box-shadow: 2px 2px 20px -2px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(
+    104.04deg,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  border-radius: 20px;
+  text-align: right;
+  padding-top: 2rem;
+  padding-right: 2rem;
+  position: relative;
+  z-index: 2;
+  margin-right: 5rem;
+  margin-bottom: 5rem;
+}
+.todayScheduleItem::after {
+  content: '';
+  width: 350px;
+  height: 150px;
+  background: url(./../../assets/images/backgrounds/frost.png);
+  mix-blend-mode: overlay;
+  opacity: 0.4;
+  border-radius: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.todayScheduleSubject {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0.07em;
+}
+.todayScheduleTime {
+  margin-top: 1.5rem;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: 0.07em;
+  color: #595959;
+}
+.todayScheduleTimeFacultyIncharge {
+  margin-top: 2.5rem;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0.07em;
+  color: #1a1a1a;
+}
+.noClassMsg {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 21px;
+  letter-spacing: 0.07em;
+  margin-right: auto;
+  margin-left: auto;
+}
