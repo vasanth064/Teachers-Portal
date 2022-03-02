@@ -25,11 +25,7 @@ const ArrearList = () => {
       fontWeight='500'
       />
     </SearchArea>
-    <GreenButton 
-    height='6rem' 
-    width='24rem' 
-    borderRadius='1rem' 
-    fontSize='2rem' 
+    <GreenButton   
     margin='15rem 60rem'>Get Report</GreenButton>
     </PageContent>
   </div>;

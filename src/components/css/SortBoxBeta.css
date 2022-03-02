@@ -1,0 +1,35 @@
+.ContainerHead {
+	height: auto;
+	width: 25rem;
+	padding: 1.5rem 2rem 1.5rem 2rem;
+	display: flex;
+	border-radius: 2rem;
+	background: linear-gradient(
+		104.04deg,
+		rgba(255, 255, 255, 0.6) 0%,
+		rgba(255, 255, 255, 0.4) 100%
+	);
+	box-shadow: 4px 4px 24px rgba(0, 0, 0, 0.25);
+	backdrop-filter: blur(75px);
+	border: none;
+	font-size: 1.5rem;
+	font-weight: 600;
+	letter-spacing: 0.04rem;
+}
+
+.grpvalues {
+	height: auto;
+	width: 45rem;
+	display: block;
+	background: linear-gradient(
+		104.04deg,
+		rgba(255, 255, 255, 0.6) 0%,
+		rgba(255, 255, 255, 0.4) 100%
+	);
+	box-shadow: 4px 4px 24px rgba(0, 0, 0, 0.25);
+	backdrop-filter: blur(75px);
+	border-radius: 20rem;
+	font-size: 1.5rem;
+	font-weight: 500;
+	border: none;
+}

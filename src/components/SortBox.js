@@ -1,6 +1,5 @@
 import React from 'react'
 import './css/SortBox.css';
-//import Expand from '../assets/images/icons/expandmorewhite.svg';
 
 const SortBox = () => {
     return (
