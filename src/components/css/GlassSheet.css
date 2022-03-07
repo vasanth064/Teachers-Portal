@@ -1,5 +1,4 @@
 .GlassSheet {
-	position: relative;
 	background: url("./../../assets/images/backgrounds/frost.png");
 	box-shadow: 4px 4px 24px -4px rgba(0, 0, 0, 0.3);
 	backdrop-filter: blur(1rem);

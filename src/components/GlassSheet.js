@@ -7,6 +7,7 @@ const GlassSheet = ( {
     width,
     borderRadius,
     margin,
+    padding
 } ) => {
   return (
     <div className='GlassSheet'
@@ -16,6 +17,7 @@ const GlassSheet = ( {
             width,
             borderRadius,
             margin,
+            padding
         }
     }>{children}</div>
   )

@@ -1,0 +1,14 @@
+.ButtonBody {
+	position: absolute;
+	background: url("./../../assets/images/backgrounds/frost.png");
+	background-color: #99add3;
+	border-radius: 1rem;
+	border: none;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 1.5rem;
+	line-height: 32px;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: #ffffff;
+}

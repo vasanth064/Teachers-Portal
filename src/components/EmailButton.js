@@ -4,7 +4,7 @@ import Email from '../assets/images/icons/Email.svg';
 
 const EmailButton = () => {
   return <button className='blueButton' style={{
-    borderRadius: "0rem 0rem 0rem 2rem"
+    borderRadius: "0rem 0rem 0rem 1.5rem"
   }}>
           <img className='iconButton' src={Email} alt='Email'/>
       </button>;

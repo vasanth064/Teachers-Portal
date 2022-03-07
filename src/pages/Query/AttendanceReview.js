@@ -4,21 +4,22 @@ import PageContent from'../../components/PageContent';
 import GlassSheet from '../../components/GlassSheet';
 import styled from 'styled-components';
 import SortBoxBeta from '../../components/SortBoxBeta';
+import ActionButton from '../../components/ActionButtons';
 
 const ContentTopic = styled.h1`
 position: relative;
 font-size: 2rem;
 font-weight: 600;
 letter-spacing: 0.2rem;
-padding: 4rem 0rem 0rem 5rem;
+padding: 5rem 0rem 0rem 0rem;
 `;
 
 const ContentHolder = styled.div`
 position: relative;
 display: flex;
 height: auto;
-width: 75rem;
-margin: 5rem 0rem 0rem 8rem;
+width: 65rem;
+padding: 4rem 0rem 0rem 2rem;
 justify-content: space-between;
 align-content: center;
 `;
@@ -47,27 +48,44 @@ const AttendanceReview = () => {
      <PageHeader text='Attendance Review'/>
     <PageContent>
       <GlassSheet 
-      height='25rem'
-      width='130rem'
+      height='28rem'
+      width='120rem'
       borderRadius='2rem'
-      margin='0rem 0rem 0rem 0rem'>
+      padding='0rem 8rem 0rem 8rem'>
         <div style={
           {
-            display: 'flex'
-            }}>
-              <ContentTopic>Department of Computer Engineering</ContentTopic>
-              <SortBoxBeta/>
-        </div>
-        <ContentHolder>
-          <div>
-             <Label>From</Label>
-             <InputField type='date' placeholder='From...'></InputField>
+            display: 'flex',
+            justifyContent: 'space-between'
+          }}>
+
+            <div>
+              <ContentTopic>
+                Department of Computer Engineering
+              </ContentTopic>
+               <ContentHolder>
+                 <div>
+                   <Label>From</Label>
+                   <InputField type='date' placeholder='From...'></InputField>
+                  </div>
+                  <div>
+                    <Label>To</Label>
+                    <InputField type='date' placeholder='To...'></InputField>
+                  </div>
+                </ContentHolder>
+            </div>
+            
+            <div>
+              <SortBoxBeta
+              margin='4rem 0rem 0rem 0rem'/>
+            </div>
+           
           </div>
-          <div>
-             <Label>To</Label>
-             <InputField type='date' placeholder='To...'></InputField>
-          </div>
-        </ContentHolder>
+           <ActionButton 
+              height = '4rem'
+              width = '18rem'
+              margin = '5rem 0rem 0rem 45rem'>
+                Submit
+              </ActionButton>
       </GlassSheet>
     </PageContent>
   </div>;
