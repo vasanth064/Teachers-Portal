@@ -26,7 +26,7 @@ const ArrearList = () => {
       />
     </SearchArea>
     <GreenButton   
-    margin='15rem 60rem'>Get Report</GreenButton>
+    margin='15rem 55rem'>Get Arrear Report</GreenButton>
     </PageContent>
   </div>;
 }

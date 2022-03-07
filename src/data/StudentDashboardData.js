@@ -11,13 +11,6 @@ import StudentInformation from '../pages/Query/StudentInformation';
 import ArrearList from '../pages/Query/ArrearList';
 import AttendanceReport from '../pages/Query/AttendanceReport';
 import AttendanceReview from '../pages/Query/AttendanceReview';
-import LabDetails from '../pages/Timetable Entry/LabDetails';
-import HallAllotmentDept from '../pages/Timetable Entry/HallAllotmentDept';
-import HallAllotmentProcess from '../pages/Timetable Entry/HallAllotmentProcess';
-import HallAllotmentSummer from '../pages/Timetable Entry/HallAllotmentSummer';
-import WorkloadAllotment from '../pages/Timetable Entry/WorkloadAllotment';
-import PreviousLoad from '../pages/Timetable Entry/PreviousLoad';
-import StaffChange from '../pages/Timetable Entry/StaffChange';
 import Home from '../pages/Attendance/Home';
 import ElectiveEntry from '../pages/Attendance/ElectiveEntry';
 import ClassTimetable from '../pages/Attendance/ClassTimetable';
@@ -87,48 +80,6 @@ const StudentDashboardData = [
               title: 'Attendance Review Report',
               URL: 'AttendanceReview',
               page:AttendanceReview,
-            },
-          ],
-        },
-        {
-          navTitle: 'Timetable Entry',
-          navIcon: <MdLuggage />,
-          navURL: '/Hostel',
-          subMenu: [
-            {
-              title: 'Lab Details',
-              URL: 'LabDetails',
-              page: LabDetails,
-            },
-            {
-              title: 'Hall Allotment Dept',
-              URL: 'HallAllotmentDept',
-              page: HallAllotmentDept,
-            },
-            {
-              title: 'Hall Allotment Process',
-              URL: 'HallAllotmentProcess',
-              page: HallAllotmentProcess,
-            },
-            {
-              title: 'Hall Allotment Dept (Summer)',
-              URL: 'HallAllotmentSummer',
-              page: HallAllotmentSummer,
-            },
-            {
-              title: 'Workload Allotment',
-              URL: 'WorkloadAllotment',
-              page: WorkloadAllotment,
-            },
-            {
-              title: 'Previous Load',
-              URL: 'PreviousLoad',
-              page: PreviousLoad,
-            },
-            {
-              title: 'Staff Change',
-              URL: 'StaffChange',
-              page: StaffChange,
             },
           ],
         },

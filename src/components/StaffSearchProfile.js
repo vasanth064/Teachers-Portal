@@ -11,12 +11,6 @@ display: flex;
 top: 2.5rem;
 `;
 
-const Contact = styled.div`
-position: relative;
-top: 8.2rem;
-background: none;
-`;
-
 const StaffName = styled.div`
 position: relative;
 font-size: 2rem;
@@ -60,7 +54,6 @@ align-items: center;
 `;
         
 const Searchbar = styled.input`
-position: relative;
 	background: rgba(255, 249, 249, 0.6);
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	border: none;
@@ -72,7 +65,14 @@ position: relative;
 	border-radius: 0rem 2rem 2rem 0rem;
 	font-size: 2rem;
 	font-weight:normal;
-`
+`;
+
+const Contact = styled.div`
+position: relative;
+top: 8.2rem;
+background: none;
+justify-content: space-around;
+`;
 
 const StaffSearchProfile = ({data}) => {
   

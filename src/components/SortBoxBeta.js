@@ -1,13 +1,13 @@
 import React from 'react'
 import './css/SortBoxBeta.css';
 
-const SortBoxBeta = () => {
+const SortBoxBeta = ({margin, padding}) => {
   return (
     <div style={
-        {
-            position: 'absolute',
-            margin: '3rem 0rem 0rem 95rem'
-        }}>
+      {
+        margin,
+        padding
+      }}>
         <select className='ContainerHead'>
             <optgroup className='ContainerHead' label='AttendanceReview'>
                  <option className='grpvalues'>Overall</option>
