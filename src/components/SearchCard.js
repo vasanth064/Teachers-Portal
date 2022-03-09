@@ -8,40 +8,36 @@ const SearchCard = ({
   borderRadius, 
   margin, 
   type, 
-  fontSize, 
-  fontWeight,
   children,
-  value,
+  childrens
 })  => {
   
-  return <div>
-    {type === 'text' ? (
-          <input
-          className='searchcard'
-          style={
-            {
-              width,
-              height,
-              borderRadius,
-              margin,
-              fontSize,
-              fontWeight,
-              value,
-          }
-        }>{children}</input>
-        ) : (
-          <div
-           className='searchcard'
-           style={
-             {
-               position,
-               width,
-               height,
+  return <>
+  {type === 'text' ? (
+    <span>
+      <input
+  className='inputfield'
+  style={
+    {
+      type,
+      height,
+      width
+    }
+  }>{children}</input>
+    </span>
+  ) : (
+  <div
+  className='searchcard'
+  style={
+    {
+      position,
+      width,
+      height,
                borderRadius,
                margin, 
               }}>{children}</div>
         )}
-      </div>;
+      </>;
     }
 
 export default SearchCard;

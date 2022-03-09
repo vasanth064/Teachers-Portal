@@ -9,7 +9,7 @@ const Staffsearch = () => {
     <div>
         <PageHeader text='Staff Search'/>
         <PageContent>
-          <StaffSearchProfile data={StaffInformationData}/>
+          <StaffSearchProfile data={StaffInformationData.StaffDet}/>
         </PageContent>
     </div>
     )

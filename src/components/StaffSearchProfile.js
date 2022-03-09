@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import SearchCard from './SearchCard';
-import EmailButton from './EmailButton';
-import PhoneButton from './PhoneButton';
-import SearchButton from './SearchButton';
 import styled from 'styled-components';
+import ActionButton from './ActionButtons';
+import { BiSearch } from 'react-icons/bi' 
+import { FaPhoneAlt } from 'react-icons/fa'
+import { IoIosMail } from 'react-icons/io'
 
 const Searching = styled.div`
 position: relative;
@@ -53,51 +54,34 @@ top: 8rem;
 align-items: center;
 `;
         
-const Searchbar = styled.input`
-	background: rgba(255, 249, 249, 0.6);
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-	border: none;
-	justify-content: center;
-	text-align: center;
-  type='text' 
-  height: 6rem;
-	width: 135rem;
-	border-radius: 0rem 2rem 2rem 0rem;
-	font-size: 2rem;
-	font-weight:normal;
-`;
-
 const Contact = styled.div`
 position: relative;
 top: 8.2rem;
-background: none;
-justify-content: space-around;
 `;
 
 const StaffSearchProfile = ({data}) => {
-  
-  const [filter, setFilter] = useState('');
- 
-  const SearchText = (event) => {
-    setFilter(event.target.value);
-  }
-  
-  let DataSearch = data.StaffDet.filter(item => {
-    return Object.keys(item).some(key => item[key].toString().toLowerCase()
-    .includes(filter.toString().toUpperCase())
-    )
-  });
 
         return (
         <>
          <Searching>
-                <SearchButton/>
-                <Searchbar
-                value = {filter}
-                onChange = {SearchText.bind(this)}/>
+             <span>
+                 <ActionButton
+                 height='6rem'
+                 width='10rem'
+             borderRadius='2rem 0rem 0rem 2rem'
+             padding='1rem 0rem 0rem 0rem'>
+                 <BiSearch size='4rem'/>
+             </ActionButton>
+             </span>
+                  <SearchCard
+                type='text' 
+                height='6rem'
+                width='135rem'
+                placeholder="Staff ID"
+                />
             </Searching>
             <SearchedArea>
-                {DataSearch.map((item, index) => {
+                {data.map((item, index) => {
                   return (
                      <SearchCard width='28rem' height='32rem' borderRadius='2rem' key={index}>
                     <img style={
@@ -113,8 +97,21 @@ const StaffSearchProfile = ({data}) => {
                     <StaffDepartment> {item.Department} </StaffDepartment>
                     <StaffDesignation> {item.Designation} </StaffDesignation>
                     <Contact>
-                        <EmailButton/>
-                        <PhoneButton/>
+                        <ActionButton
+                        height='6rem'
+                        width='13.8rem'
+                        borderRadius='0rem 0rem 0rem 2rem'
+                        margin='0rem 0.2rem 0rem 0rem'
+                        padding='0.5rem 0rem 0rem 0rem'>
+                            <FaPhoneAlt size="3rem"/>
+                        </ActionButton>
+                        <ActionButton
+                        height='6rem'
+                        width='13.8rem'
+                        borderRadius='0rem 0rem 2rem 0rem'
+                        margin='0rem 0rem 0rem 0.2rem'>
+                            <IoIosMail size="3.5rem"/>
+                        </ActionButton>
                     </Contact>
                 </SearchCard>
                   )})}

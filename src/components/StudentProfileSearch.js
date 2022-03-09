@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components';
 import SearchCard from './SearchCard';
-import SearchButton from './SearchButton';
-import EmailButton from './EmailButton';
-import PhoneButton from './PhoneButton';
+import ActionButton from './ActionButtons';
+import { BiSearch } from 'react-icons/bi' 
+import { FaPhoneAlt } from 'react-icons/fa'
+import { IoIosMail } from 'react-icons/io'
 
 const Searching = styled.div`
 position: relative;
@@ -52,29 +53,26 @@ justify-content: center;
 top: 8rem;
 align-items: center;
 `;
-        
-const Searchbar = styled.input`
-position: relative;
-background: rgba(255, 249, 249, 0.6);
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-border: none;
-justify-content: center;
-text-align: center;
-type='text' 
-height: 6rem;
-width: 135rem;
-border-radius: 0rem 2rem 2rem 0rem;
-font-size: 2rem;
-font-weight:normal;
-`;
 
 const StudentProfileSearch = ({data}) => {
   return (
   <>
-    <Searching>
-      <SearchButton/>
-      <Searchbar/>
-    </Searching>
+  <Searching>
+             <span>
+                 <ActionButton
+                 height='6rem'
+                 width='10rem'
+             borderRadius='2rem 0rem 0rem 2rem'
+             padding='1rem 0rem 0rem 0rem'>
+                 <BiSearch size='4rem'/>
+             </ActionButton>
+             </span>
+                  <SearchCard
+                type='text' 
+                height='6rem'
+                width='135rem'
+                />
+            </Searching>
     <SearchedArea>
       {data.StudentDet.map((item, index) => {
         return (
@@ -93,9 +91,22 @@ const StudentProfileSearch = ({data}) => {
             <StudentDepartment> {item.Department} </StudentDepartment>
             <StudentRegisterNumber>{item.rollno}</StudentRegisterNumber>
             <Contact>
-              <EmailButton/>
-              <PhoneButton/>
-            </Contact>
+                        <ActionButton
+                        height='6rem'
+                        width='13.8rem'
+                        borderRadius='0rem 0rem 0rem 2rem'
+                        margin='0rem 0.2rem 0rem 0rem'
+                        padding='0.5rem 0rem 0rem 0rem'>
+                            <FaPhoneAlt size="3rem"/>
+                        </ActionButton>
+                        <ActionButton
+                        height='6rem'
+                        width='13.8rem'
+                        borderRadius='0rem 0rem 2rem 0rem'
+                        margin='0rem 0rem 0rem 0.2rem'>
+                            <IoIosMail size="3.5rem"/>
+                        </ActionButton>
+                    </Contact>
           </SearchCard>
           )})}
       </SearchedArea>

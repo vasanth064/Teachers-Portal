@@ -86,7 +86,8 @@ const AttendanceReport = () => {
            <ActionButton 
               height = '4rem'
               width = '18rem'
-              margin = '5rem 0rem 0rem 45rem'>
+              margin = '5rem 0rem 0rem 45rem'
+              borderRadius='1rem'>
                 Submit
               </ActionButton>
       </GlassSheet>
