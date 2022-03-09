@@ -1,9 +1,7 @@
 .ButtonBody {
-	position: absolute;
-	background: url("./../../assets/images/backgrounds/frost.png");
-	background-color: #99add3;
-	border-radius: 1rem;
+	background-color: rgba(153, 173, 211, 100%);
 	border: none;
+
 	font-style: normal;
 	font-weight: bold;
 	font-size: 1.5rem;
@@ -11,4 +9,15 @@
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
 	color: #ffffff;
+}
+
+.ButtonBody::before {
+	content: "";
+	position: absolute;
+	background: url("./../../assets/images/backgrounds/frost.png");
+	opacity: 20%;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import './css/ActionButtons.css';
 
-const ActionButton = ({children, height, width, margin, padding}) => {
+const ActionButton = ({children, height, width, margin, padding, borderRadius}) => {
     return <button 
     className='ButtonBody'
     style={
@@ -9,7 +9,8 @@ const ActionButton = ({children, height, width, margin, padding}) => {
             height,
             width,
             margin,
-            padding
+            padding,
+            borderRadius
         }}>{children}</button>
 }
 

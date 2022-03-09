@@ -82,10 +82,11 @@ const AttendanceReview = () => {
           </div>
            <ActionButton 
               height = '4rem'
-              width = '18rem'
-              margin = '5rem 0rem 0rem 45rem'>
+              width = '18rem' 
+              margin='4rem 40rem'
+              borderRadius='1rem'>
                 Submit
-              </ActionButton>
+            </ActionButton>
       </GlassSheet>
     </PageContent>
   </div>;
