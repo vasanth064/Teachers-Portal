@@ -9,11 +9,11 @@ const SearchCard = ({
   margin, 
   type, 
   children,
-  childrens
+  border
 })  => {
   
   return <>
-  {type === 'text' ? (
+  {(type === 'text' || type === 'date') ? (
     <span>
       <input
   className='inputfield'
@@ -21,7 +21,9 @@ const SearchCard = ({
     {
       type,
       height,
-      width
+      width,
+      border,
+      borderRadius
     }
   }>{children}</input>
     </span>

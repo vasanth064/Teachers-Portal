@@ -7,6 +7,8 @@
 	font-size: 2rem;
 	font-weight: normal;
 	letter-spacing: 0.07em;
+	box-shadow: none;
+	padding: 0rem 0rem 0rem 2rem;
 }
 
 .searchcard {
@@ -17,7 +19,6 @@
 	text-align: center;
 }
 
-.inputfield::before,
 .searchcard::before {
 	content: "";
 	background: url("../../assets/images/backgrounds/frost.png");
