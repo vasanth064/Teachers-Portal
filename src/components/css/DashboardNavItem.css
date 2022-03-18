@@ -16,10 +16,6 @@
   position: relative;
   z-index: 2;
 }
-.active {
-  background: rgba(255, 255, 255, 0.75);
-  color: black;
-}
 .navHeaderText {
   font-style: normal;
   font-weight: 500;
