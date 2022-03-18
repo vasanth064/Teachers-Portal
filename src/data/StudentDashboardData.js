@@ -6,8 +6,6 @@ import { MdLuggage } from 'react-icons/md';
 import { SiMicrosoftacademic } from 'react-icons/si';
 import StaffSearch from '../pages/Profile/StaffSearch';
 import StaffInformation from '../pages/Profile/StaffInformation';
-import StudentSearch from '../pages/Query/StudentSearch';
-import StudentInformation from '../pages/Query/StudentInformation';
 import ArrearList from '../pages/Query/ArrearList';
 import AttendanceReport from '../pages/Query/AttendanceReport';
 import AttendanceReview from '../pages/Query/AttendanceReview';
@@ -18,6 +16,8 @@ import LeaveManagement from '../pages/Attendance/LeaveManagement';
 import StaffTimetable from '../pages/Attendance/StaffTimetable';
 import CAMarkEntry from '../pages/Assesment/CAMarkEntry';
 import LabFinalExam from '../pages/Assesment/LabFinalExam';
+import StudentProfileSearch from '../components/StudentProfileSearch';
+import StudentsInformationSlide from '../components/StudentsInformationSlide';
 // import { BiSitemap } from 'react-icons/bi';
 
 const StudentDashboardData = [
@@ -32,7 +32,7 @@ const StudentDashboardData = [
         {
           navTitle: 'Dashboard',
           navIcon: <MdOutlineDashboard />,
-          navURL: '/StudentsDashboard',
+          navURL: '',
           subMenu: [],
         },
         {
@@ -43,12 +43,12 @@ const StudentDashboardData = [
               title: 'Staff Search',
               // icon: <BiSitemap />,
               URL: 'Staffsearch',
-              page: StaffSearch,
+              page: <StaffSearch />,
             },
             {
               title: 'Staff Information',
               URL: 'StaffInformation',
-              page: StaffInformation,
+              page: <StaffInformation />,
             },
           ],
         },
@@ -59,27 +59,27 @@ const StudentDashboardData = [
             {
               title: 'Students Search',
               URL: 'StudentSearch',
-              page: StudentSearch,
+              page: <StudentProfileSearch />,
             },
             {
               title: 'Student Information',
               URL: 'StudentInformation',
-              page: StudentInformation,
+              page: <StudentsInformationSlide />,
             },
             {
               title: 'Arrear List',
               URL: 'ArrearList',
-              page: ArrearList,
+              page: <ArrearList />,
             },
             {
               title: 'Attendance Report',
               URL: 'AttendanceReport',
-              page: AttendanceReport,
+              page: <AttendanceReport />,
             },
             {
               title: 'Attendance Review Report',
               URL: 'AttendanceReview',
-              page:AttendanceReview,
+              page: <AttendanceReview />,
             },
           ],
         },
@@ -91,27 +91,27 @@ const StudentDashboardData = [
             {
               title: 'Home',
               URL: 'Home',
-              page: Home,
+              page: <Home />,
             },
             {
               title: 'Elective Entry',
               URL: 'ElectiveEntry',
-              page: ElectiveEntry,
+              page: <ElectiveEntry />,
             },
             {
               title: 'Class Timetable',
               URL: 'ClassTimetable',
-              page: ClassTimetable,
+              page: <ClassTimetable />,
             },
             {
               title: 'Leave Management',
               URL: 'LeaveManagement',
-              page: LeaveManagement,
+              page: <LeaveManagement />,
             },
             {
               title: 'Staff Timetable',
               URL: 'StaffTimetable',
-              page: StaffTimetable,
+              page: <StaffTimetable />,
             },
           ],
         },
@@ -123,12 +123,12 @@ const StudentDashboardData = [
             {
               title: 'CA Marks Entry',
               URL: 'CAMarkEntry',
-              page: CAMarkEntry,
+              page: <CAMarkEntry />,
             },
             {
               title: 'Lab Exam Mark Entry',
               URL: 'LabFinalExam',
-              page: LabFinalExam,
+              page: <LabFinalExam />,
             },
           ],
         },
