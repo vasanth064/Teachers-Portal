@@ -5,14 +5,14 @@ import StaffSearchProfile from '../../components/StaffSearchProfile';
 import StaffInformationData from '../../data/StaffInformationData';
 
 const Staffsearch = () => {
-    return (
+  return (
     <div>
-        <PageHeader text='Staff Search'/>
-        <PageContent>
-          <StaffSearchProfile data={StaffInformationData.StaffDet}/>
-        </PageContent>
+      <PageHeader text='Staff Search' />
+      <PageContent>
+        <StaffSearchProfile data={StaffInformationData} />
+      </PageContent>
     </div>
-    )
-}
+  );
+};
 
 export default Staffsearch;

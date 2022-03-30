@@ -1,15 +1,21 @@
-import React from 'react'
-import './css/SortBox.css';
+import React from 'react';
+import './css/SortBoxBeta.css';
 
-const SortBox = () => {
-    return (
-    <div>
-        <select className='Container'>
-            <option className='dropdown-content' value='department'>Department</option>
-            <option className='dropdown-content' value='semester'>Semester</option>
-        </select>
+const SortBox = ({ margin, padding }) => {
+  return (
+    <div
+      style={{
+        margin,
+        padding,
+      }}>
+      <select className='ContainerHead'>
+        <optgroup className='ContainerHead' label='Status Selection'>
+          <option className='grpvalues'>View All</option>
+          <option className='grpvalues'>Poor Case</option>
+        </optgroup>
+      </select>
     </div>
-)
-}
+  );
+};
 
 export default SortBox;
