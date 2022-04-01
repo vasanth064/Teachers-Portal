@@ -7,12 +7,12 @@ import StudentProfileSearch from '../../components/StudentProfileSearch';
 const StudentSearch = () => {
   return (
     <div>
-      <PageHeader text='Student Search'/>
+      <PageHeader text='Student Search' />
       <PageContent>
-        <StudentProfileSearch data={StudentInformationData}/>
-        </PageContent>
+        <StudentProfileSearch data={StudentInformationData} />
+      </PageContent>
     </div>
   );
-}
+};
 
 export default StudentSearch;

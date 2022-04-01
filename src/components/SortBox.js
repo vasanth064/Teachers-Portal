@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/SortBoxBeta.css';
+import './css/SortBox.css';
 
 const SortBox = ({ margin, padding }) => {
   return (
