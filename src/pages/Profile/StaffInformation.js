@@ -37,7 +37,6 @@ const StaffName = styled.h1`
 
 const DetailsContainer = styled.div`
   padding: 5rem 0;
-  height: 350px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
