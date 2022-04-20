@@ -1,7 +1,7 @@
 .GlassSheet {
-	background: url("../../assets/images/backgrounds/frost.png");
-	background-color: rgba(255, 255, 255, 0%);
-	border: 2.5px solid #ffffff;
-	backdrop-filter: blur(240px);
-	box-shadow: 4px 4px 24px -4px rgba(0, 0, 0, 0.3);
+  background: url('../../assets/images/backgrounds/frost.png');
+  background-color: rgba(255, 255, 255, 0%);
+  border: 2.5px solid #ffffff;
+  backdrop-filter: blur(240px);
+  box-shadow: 4px 4px 24px -4px rgba(0, 0, 0, 0.3);
 }

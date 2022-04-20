@@ -16,8 +16,8 @@ import LeaveManagement from '../pages/Attendance/LeaveManagement';
 import StaffTimetable from '../pages/Attendance/StaffTimetable';
 import CAMarkEntry from '../pages/Assesment/CAMarkEntry';
 import LabFinalExam from '../pages/Assesment/LabFinalExam';
-import StudentProfileSearch from '../components/StudentProfileSearch';
-import StudentsInformationSlide from '../components/StudentsInformationSlide';
+import StudentInformation from './../pages/Query/StudentInformation';
+import StudentSearch from '../pages/Query/StudentSearch';
 // import { BiSitemap } from 'react-icons/bi';
 
 const StudentDashboardData = [
@@ -59,12 +59,12 @@ const StudentDashboardData = [
             {
               title: 'Students Search',
               URL: 'StudentSearch',
-              page: <StudentProfileSearch />,
+              page: <StudentSearch />,
             },
             {
               title: 'Student Information',
               URL: 'StudentInformation',
-              page: <StudentsInformationSlide />,
+              page: <StudentInformation />,
             },
             {
               title: 'Arrear List',
