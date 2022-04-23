@@ -1,7 +1,8 @@
 import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { auth, db } from '../Config/firebaseConfig';
 import React, { useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { auth } from '../Config/firebaseConfig';
 
 const AuthContext = React.createContext();
 export const useAuth = () => {
@@ -13,6 +14,7 @@ const AuthenticationProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [userData, setUserData] = useState();
 
   const emailPasswordSignIn = async (email, password) => {
     try {
@@ -39,7 +41,7 @@ const AuthenticationProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
+    const unsubscribe = auth.onAuthStateChanged(async (user) => {
       if (user) {
         const userDataRef = collection(db, 'teachers');
         const q = query(userDataRef, where('email', '==', user.email));
@@ -60,6 +62,7 @@ const AuthenticationProvider = ({ children }) => {
 
   const value = {
     currentUser,
+    userData,
     emailPasswordSignIn,
     logOut,
     error,
