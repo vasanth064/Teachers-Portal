@@ -84,6 +84,8 @@
   width: 5rem;
   background: #ffffff;
   height: 5rem;
+  border: none;
+
   border-radius: 50px;
   box-shadow: 2px 2px 24px -4px rgba(0, 0, 0, 0.25);
 }

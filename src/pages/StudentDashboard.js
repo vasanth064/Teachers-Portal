@@ -9,11 +9,12 @@ import { MdOutlineLogout } from 'react-icons/md';
 import NavItem from '../components/DashboardNavItem';
 import { NavLink } from 'react-router-dom';
 import StudentDashboardMobile from './StudentDashboardMobile';
+import { useAuth } from '../Context/AuthContext';
 const StudentDashboard = ({ children }) => {
   const [sideBar, setSideBar] = useState(false);
 
   const sideBarHandle = () => setSideBar(!sideBar);
-
+  const { logOut } = useAuth();
   return (
     <>
       <MediaQuery minWidth={900}>
@@ -115,9 +116,11 @@ const StudentDashboard = ({ children }) => {
                   <div className='userActionBtn password'>
                     <MdOutlineFingerprint />
                   </div>
-                  <NavLink className='userActionBtn logout' to='/Login'>
+                  <button
+                    className='userActionBtn logout'
+                    onClick={() => logOut()}>
                     <MdOutlineLogout />
-                  </NavLink>
+                  </button>
                 </div>
               </div>
             ))}
