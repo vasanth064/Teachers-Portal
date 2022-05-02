@@ -14,7 +14,7 @@ const StudentDashboard = ({ children }) => {
   const [sideBar, setSideBar] = useState(false);
 
   const sideBarHandle = () => setSideBar(!sideBar);
-  const { logOut } = useAuth();
+  const { logOut, userData } = useAuth();
   return (
     <>
       <MediaQuery minWidth={900}>
@@ -102,12 +102,10 @@ const StudentDashboard = ({ children }) => {
                 <div className='dashboardHeaderLeft'>
                   <img
                     className='dashboardHeaderUserAccount'
-                    src={item.header.userImage}
+                    src={userData.photo}
                     alt='user'
                   />
-                  <h1 className='dashboardHeaderUsername'>
-                    {item.header.userName}
-                  </h1>
+                  <h1 className='dashboardHeaderUsername'>{userData.name}</h1>
                 </div>
                 <div className='dashboardHeaderRight'>
                   <div className='userActionBtn notification'>

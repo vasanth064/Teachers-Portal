@@ -10,7 +10,7 @@ import { useAuth } from '../Context/AuthContext';
 const StudentDashboardMobile = ({ children }) => {
   const [mobileSidebar, setMobileSidebar] = useState(false);
   const sideBarHandle = () => setMobileSidebar(!mobileSidebar);
-  const { logOut } = useAuth();
+  const { logOut, userData } = useAuth();
   return (
     <div className='StudentsDashboardMobilePage'>
       <div className='dashboardSidebarContainerMobile'>
@@ -31,12 +31,10 @@ const StudentDashboardMobile = ({ children }) => {
             <div className='dashboardSidebarUserAction'>
               <img
                 className='dashboardSidebarUserAccount'
-                src={item.header.userImage}
+                src={userData.photo}
                 alt='user'
               />
-              <h1 className='dashboardSidebarUsername'>
-                {item.header.userName}
-              </h1>
+              <h1 className='dashboardSidebarUsername'>{userData.name}</h1>
               <div className='userActionBtnMob notification'>
                 <MdOutlineNotificationsActive />
               </div>
