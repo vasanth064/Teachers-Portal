@@ -1,9 +1,8 @@
 import userImage from './../assets/images/UserAccount.png';
 import logo from './../assets/images/logos/Logo.png';
-import { MdOutlineDashboard } from 'react-icons/md';
-import { MdSchool ,MdLuggage,MdManageSearch} from 'react-icons/md';
-import {FaSearch} from 'react-icons/fa'
- import { SiMicrosoftacademic } from 'react-icons/si';
+import { MdOutlineDashboard,MdSchool ,MdLuggage,MdManageSearch } from 'react-icons/md';
+import {FaSearch, FaUserAlt} from 'react-icons/fa'
+import {BsCalendarCheck, BsPencilSquare} from 'react-icons/bs'
 import StaffSearch from '../pages/Profile/StaffSearch';
 import StaffInformation from '../pages/Profile/StaffInformation';
 import ArrearList from '../pages/Query/ArrearList';
@@ -11,7 +10,7 @@ import AttendanceReport from '../pages/Query/AttendanceReport';
 import AttendanceReview from '../pages/Query/AttendanceReview';
 import Home from '../pages/Attendance/Home';
 import ElectiveEntry from '../pages/Attendance/ElectiveEntry';
-import ClassTimetable from '../pages/Attendance/ClassTimetable';
+import ClassTimetable from '../pages/Query/ClassTimetable';
 import LeaveManagement from '../pages/Attendance/LeaveManagement';
 import StaffTimetable from '../pages/Attendance/StaffTimetable';
 import CAMarkEntry from '../pages/Assesment/CAMarkEntry';
@@ -41,14 +40,13 @@ const StudentDashboardData = [
           subMenu: [
             {
               title: 'Students Search',
-              // icon: <BiSitemap />,
               URL: 'searchStudents',
-              page: <StaffSearch />,
+              page: <StudentSearch />,
             },
             {
               title: 'Teachers Search',
               URL: 'searchTeachers',
-              page: <StaffInformation />,
+              page: <StaffSearch />,
             },
           ],
         },
@@ -57,35 +55,25 @@ const StudentDashboardData = [
           navIcon: <MdManageSearch />,
           subMenu: [
             {
-              title: 'Internal Marks',
-              URL: 'internalMarks',
-              page: <StudentSearch />,
-            },
-            {
-              title: 'Semester Marks',
-              URL: 'semesterMarks',
-              page: <StudentInformation />,
-            },
-            {
               title: 'Class Timetable',
               URL: 'classTimetable',
-              page: <ArrearList />,
+              page: <ClassTimetable />,
             },
             {
               title: 'Posted Leaves',
               URL: 'postedLeaves',
-              page: <AttendanceReport />,
+              page: <LeaveManagement/>,
             },
             {
               title: 'Class Reports',
               URL: 'classReports',
-              page: <AttendanceReview />,
+              page: <Home/>,
             },
           ],
         },
         {
           navTitle: 'Attendance',
-          navIcon: <MdLuggage />,
+          navIcon: <BsCalendarCheck />,
           subMenu: [
             {
               title: 'Attendance Entry',
@@ -95,18 +83,18 @@ const StudentDashboardData = [
             {
               title: 'Attendance Review',
               URL: 'semesterMarkEntry',
-              page: <CAMarkEntry />,
+              page: <AttendanceReview />,
             },
             {
               title: 'Attendance Report',
               URL: 'semesterMarkEntry',
-              page: <CAMarkEntry />,
+              page: <AttendanceReport />,
             },
           ],
         },
         {
           navTitle: 'Assesment',
-          navIcon: <MdLuggage />,
+          navIcon: <BsPencilSquare />,
           subMenu: [
             {
               title: 'Internal Marks Entry',
@@ -122,7 +110,7 @@ const StudentDashboardData = [
         },
         {
           navTitle: 'Profile',
-          navIcon: <MdLuggage />,
+          navIcon: <FaUserAlt />,
           subMenu: [
             {
               title: 'Add Timetable',
