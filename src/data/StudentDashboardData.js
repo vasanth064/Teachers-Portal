@@ -1,9 +1,9 @@
 import userImage from './../assets/images/UserAccount.png';
 import logo from './../assets/images/logos/Logo.png';
 import { MdOutlineDashboard } from 'react-icons/md';
-import { MdSchool } from 'react-icons/md';
-import { MdLuggage } from 'react-icons/md';
-import { SiMicrosoftacademic } from 'react-icons/si';
+import { MdSchool ,MdLuggage,MdManageSearch} from 'react-icons/md';
+import {FaSearch} from 'react-icons/fa'
+ import { SiMicrosoftacademic } from 'react-icons/si';
 import StaffSearch from '../pages/Profile/StaffSearch';
 import StaffInformation from '../pages/Profile/StaffInformation';
 import ArrearList from '../pages/Query/ArrearList';
@@ -36,49 +36,49 @@ const StudentDashboardData = [
           subMenu: [],
         },
         {
-          navTitle: 'Profile',
-          navIcon: <SiMicrosoftacademic />,
+          navTitle: 'Search',
+          navIcon: <FaSearch />,
           subMenu: [
             {
-              title: 'Staff Search',
+              title: 'Students Search',
               // icon: <BiSitemap />,
-              URL: 'Staffsearch',
+              URL: 'searchStudents',
               page: <StaffSearch />,
             },
             {
-              title: 'Staff Information',
-              URL: 'StaffInformation',
+              title: 'Teachers Search',
+              URL: 'searchTeachers',
               page: <StaffInformation />,
             },
           ],
         },
         {
           navTitle: 'Query',
-          navIcon: <MdSchool />,
+          navIcon: <MdManageSearch />,
           subMenu: [
             {
-              title: 'Students Search',
-              URL: 'StudentSearch',
+              title: 'Internal Marks',
+              URL: 'internalMarks',
               page: <StudentSearch />,
             },
             {
-              title: 'Student Information',
-              URL: 'StudentInformation',
+              title: 'Semester Marks',
+              URL: 'semesterMarks',
               page: <StudentInformation />,
             },
             {
-              title: 'Arrear List',
-              URL: 'ArrearList',
+              title: 'Class Timetable',
+              URL: 'classTimetable',
               page: <ArrearList />,
             },
             {
-              title: 'Attendance Report',
-              URL: 'AttendanceReport',
+              title: 'Posted Leaves',
+              URL: 'postedLeaves',
               page: <AttendanceReport />,
             },
             {
-              title: 'Attendance Review Report',
-              URL: 'AttendanceReview',
+              title: 'Class Reports',
+              URL: 'classReports',
               page: <AttendanceReview />,
             },
           ],
@@ -86,49 +86,53 @@ const StudentDashboardData = [
         {
           navTitle: 'Attendance',
           navIcon: <MdLuggage />,
-          navURL: '/Hostel',
           subMenu: [
             {
-              title: 'Home',
-              URL: 'Home',
-              page: <Home />,
+              title: 'Attendance Entry',
+              URL: 'internalMarkEntry',
+              page: <CAMarkEntry />,
             },
             {
-              title: 'Elective Entry',
-              URL: 'ElectiveEntry',
-              page: <ElectiveEntry />,
+              title: 'Attendance Review',
+              URL: 'semesterMarkEntry',
+              page: <CAMarkEntry />,
             },
             {
-              title: 'Class Timetable',
-              URL: 'ClassTimetable',
-              page: <ClassTimetable />,
-            },
-            {
-              title: 'Leave Management',
-              URL: 'LeaveManagement',
-              page: <LeaveManagement />,
-            },
-            {
-              title: 'Staff Timetable',
-              URL: 'StaffTimetable',
-              page: <StaffTimetable />,
+              title: 'Attendance Report',
+              URL: 'semesterMarkEntry',
+              page: <CAMarkEntry />,
             },
           ],
         },
         {
           navTitle: 'Assesment',
           navIcon: <MdLuggage />,
-          navURL: '/Hostel',
           subMenu: [
             {
-              title: 'CA Marks Entry',
-              URL: 'CAMarkEntry',
+              title: 'Internal Marks Entry',
+              URL: 'internalMarkEntry',
               page: <CAMarkEntry />,
             },
             {
-              title: 'Lab Exam Mark Entry',
-              URL: 'LabFinalExam',
-              page: <LabFinalExam />,
+              title: 'Semester Marks Entry',
+              URL: 'semesterMarkEntry',
+              page: <CAMarkEntry />,
+            },
+          ],
+        },
+        {
+          navTitle: 'Profile',
+          navIcon: <MdLuggage />,
+          subMenu: [
+            {
+              title: 'Add Timetable',
+              URL: 'internalMarkEntry',
+              page: <CAMarkEntry />,
+            },
+            {
+              title: 'Update Profile',
+              URL: 'updateProfile',
+              page: <CAMarkEntry />,
             },
           ],
         },
