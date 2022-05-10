@@ -1,28 +1,29 @@
+import { Field } from 'formik';
 import React from 'react';
 import './css/SideNameInput.css';
 
-const SideNameInput = ({
-  type,
-  name,
-  rows,
-  width,
-  marginLeft,
-  marginRight,
-}) => {
+const SideNameInput = ({ type, name, rows, width, onChange, ...props }) => {
   return (
-    <div className='SideNameInputGroup'>
+    <div className='SideNameInputGroup' style={{ width }}>
       <h1 className='SideName'>{name}</h1>
       {type === 'textarea' ? (
-        <textarea
+        <Field
+          as='textarea'
           className='SideNameTextArea'
           rows={rows}
-          maxlength='450'
-          style={{ width, marginLeft, marginRight }}></textarea>
+          maxLength='450'
+          name={name}
+          onChange={onChange}
+          required
+          {...props}></Field>
       ) : (
-        <input
+        <Field
           type={type}
           className='SideNameInput'
-          style={{ width, marginLeft, marginRight }}
+          name={name}
+          onChange={onChange}
+          {...props}
+          required
         />
       )}
     </div>

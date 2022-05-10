@@ -1,8 +1,12 @@
-import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
-import { collection, getDocs, query, where } from 'firebase/firestore';
-import { auth, db } from '../Config/firebaseConfig';
+import {
+  signInWithEmailAndPassword,
+  signOut,
+  updatePassword,
+} from 'firebase/auth';
+import { auth } from '../Config/firebaseConfig';
 import React, { useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Loader from '../components/Loader';
 
 const AuthContext = React.createContext();
 export const useAuth = () => {
@@ -14,8 +18,11 @@ const AuthenticationProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const [userData, setUserData] = useState();
-
+  const [userData, setUserData] = useState(null);
+  const [pending, setpending] = useState(true);
+  const setData = async (data) => {
+    setUserData(data);
+  };
   const emailPasswordSignIn = async (email, password) => {
     try {
       setError('');
@@ -25,6 +32,7 @@ const AuthenticationProvider = ({ children }) => {
     } catch {
       setError('Failed To SignIn');
     }
+    setLoading(false);
   };
   const logOut = async () => {
     try {
@@ -32,43 +40,40 @@ const AuthenticationProvider = ({ children }) => {
       setLoading(true);
       await signOut(auth);
       setCurrentUser(null);
-      naviagte('/login');
     } catch {
       setError('Failed To SignOut');
       setLoading(false);
     }
     setLoading(false);
   };
-
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(async (user) => {
-      if (user) {
-        const userDataRef = collection(db, 'teachers');
-        const q = query(userDataRef, where('email', '==', user.email));
-        const snapshot = await getDocs(q);
-        setUserData(
-          snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))[0]
-        );
-
+  const passwordUpdate = (password) => {
+    return updatePassword(currentUser, password);
+  };
+  useEffect(
+    () =>
+      auth.onAuthStateChanged((user) => {
         setCurrentUser(user);
-      } else {
-        setUserData(null);
-        setCurrentUser(user);
-      }
-    });
-
-    return unsubscribe;
-  }, []);
+        setpending(false);
+      }),
+    []
+  );
 
   const value = {
     currentUser,
     userData,
+    pending,
     emailPasswordSignIn,
     logOut,
+    passwordUpdate,
     error,
     loading,
+    setData,
   };
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return pending ? (
+    <Loader text='Signing You In 🔐' signOut={logOut} />
+  ) : (
+    <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
+  );
 };
 
 export default AuthenticationProvider;

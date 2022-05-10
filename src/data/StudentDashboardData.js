@@ -1,22 +1,22 @@
 import userImage from './../assets/images/UserAccount.png';
 import logo from './../assets/images/logos/Logo.png';
-import { MdOutlineDashboard,MdSchool ,MdLuggage,MdManageSearch } from 'react-icons/md';
-import {FaSearch, FaUserAlt} from 'react-icons/fa'
-import {BsCalendarCheck, BsPencilSquare} from 'react-icons/bs'
+import { MdOutlineDashboard, MdManageSearch } from 'react-icons/md';
+import { FaSearch, FaUserAlt } from 'react-icons/fa';
+import { BsCalendarCheck, BsPencilSquare } from 'react-icons/bs';
 import StaffSearch from '../pages/Profile/StaffSearch';
-import StaffInformation from '../pages/Profile/StaffInformation';
-import ArrearList from '../pages/Query/ArrearList';
 import AttendanceReport from '../pages/Query/AttendanceReport';
 import AttendanceReview from '../pages/Query/AttendanceReview';
 import Home from '../pages/Attendance/Home';
-import ElectiveEntry from '../pages/Attendance/ElectiveEntry';
 import ClassTimetable from '../pages/Query/ClassTimetable';
 import LeaveManagement from '../pages/Attendance/LeaveManagement';
-import StaffTimetable from '../pages/Attendance/StaffTimetable';
 import CAMarkEntry from '../pages/Assesment/CAMarkEntry';
-import LabFinalExam from '../pages/Assesment/LabFinalExam';
-import StudentInformation from './../pages/Query/StudentInformation';
 import StudentSearch from '../pages/Query/StudentSearch';
+// import StaffInformation from '../pages/Profile/StaffInformation';
+// import ArrearList from '../pages/Query/ArrearList';
+// import ElectiveEntry from '../pages/Attendance/ElectiveEntry';
+// import StaffTimetable from '../pages/Attendance/StaffTimetable';
+// import LabFinalExam from '../pages/Assesment/LabFinalExam';
+// import StudentInformation from './../pages/Query/StudentInformation';
 // import { BiSitemap } from 'react-icons/bi';
 
 const StudentDashboardData = [
@@ -62,12 +62,12 @@ const StudentDashboardData = [
             {
               title: 'Posted Leaves',
               URL: 'postedLeaves',
-              page: <LeaveManagement/>,
+              page: <LeaveManagement />,
             },
             {
               title: 'Class Reports',
               URL: 'classReports',
-              page: <Home/>,
+              page: <Home />,
             },
           ],
         },

@@ -1,14 +1,14 @@
 import React from 'react';
+import { Formik, Form, Field } from 'formik';
 import LoginData from './../data/LoginData.js';
 import LoginSwitchBtn from './../components/LoginSwitchBtn';
+import { useAuth } from '../Context/AuthContext';
+import { Navigate } from 'react-router-dom';
 import './../assets/css/Login.css';
 import './../components/css/LoginInput.css';
-import { Field, Form, Formik } from 'formik';
-import { useAuth } from '../Context/AuthContext.js';
-import { Navigate } from 'react-router-dom';
-
 const Login = () => {
-  const { emailPasswordSignIn, currentUser, error } = useAuth();
+  const { currentUser, emailPasswordSignIn, error, loading } = useAuth();
+
   return (
     <>
       {currentUser ? <Navigate to='/' /> : null}
@@ -16,15 +16,16 @@ const Login = () => {
       <div className='loginPage'>
         {LoginData.map((item, index) => {
           return (
-            <div className='header' key={index}>
-              <img className='logo' src={item.logo} alt='psg ptc logo' />
-              <h1 className='logoTitle'>{item.logoTitle}</h1>
-              <h2 className='logoSubTitle'>{item.logoSubTitle}</h2>
+            <div className='loginHeader' key={index}>
+              <img className='loginLogo' src={item.logo} alt='psg ptc logo' />
+              <h1 className='loginLogoTitle'>{item.logoTitle}</h1>
+              <h2 className='loginLogoSubTitle'>{item.logoSubTitle}</h2>
             </div>
           );
         })}
-        <div className='content'>
-          <h1 className='content-title'>Login to Your Account</h1>
+
+        <div className='loginContent'>
+          <h1 className='loginContentTitle'>Login to Your Account</h1>
           <div className='loginSwitch'>
             <LoginSwitchBtn
               icon='teacher'
@@ -41,24 +42,31 @@ const Login = () => {
               emailPasswordSignIn(values.email, values.password);
             }}>
             {() => (
-              <Form className='formControlGroup'>
+              <Form className='loginFormControlGroup' autoComplete='off'>
                 <div className='loginInputGroup'>
                   <p className='loginInputName'>Email</p>
                   <Field
-                    type='email'
                     className='loginInputField'
                     name='email'
+                    type='email'
+                    required
                   />
                 </div>
                 <div className='loginInputGroup'>
                   <p className='loginInputName'>Password</p>
                   <Field
-                    type='password'
                     className='loginInputField'
                     name='password'
+                    type='password'
+                    required
                   />
                 </div>
-                <button className='loginBtn' type='submit'>
+                <button
+                  className={
+                    !loading ? 'loginBtn' : 'loginBtn loginBtnDisabled'
+                  }
+                  type='submit'
+                  disabled={loading}>
                   LOGIN
                 </button>
               </Form>

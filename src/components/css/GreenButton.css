@@ -1,12 +1,56 @@
 .greenButton {
-  background: rgba(44, 150, 48, 0.9);
+  background: #99add3;
   border-radius: 10px;
   border: none;
   font-style: normal;
-  font-weight: bold;
-  font-size: 24px;
+  font-weight: 600;
+  font-size: 1.8rem;
   line-height: 32px;
+  border-radius: 20px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #ffffff;
+  padding: 1rem 4rem;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+}
+.greenButton:hover {
+  opacity: 0.9;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+}
+.greenButton::after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+  height: 100%;
+  background: url('./../../assets/images/backgrounds/frost.png');
+  mix-blend-mode: overlay;
+  opacity: 0.2;
+}
+.greenButton:disabled,
+.greenButton[disabled] {
+  background-color: gray;
+  border: 2.5px dashed black;
+}
+.royalBlue {
+  background: #99add3;
+}
+.olive {
+  background: #adad68;
+}
+.blueviolet {
+  background: #892be2a4;
+}
+.chocolate {
+  background: #d2691ea8;
+}
+.crimson {
+  background: #dc143c9c;
+}
+.orange {
+  background: #ffa60094;
 }
