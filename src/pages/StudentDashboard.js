@@ -162,9 +162,9 @@ const StudentDashboard = ({ children }) => {
                     onClick={changeBG}>
                     <MdColorLens />
                   </div>
-                  <div className='userActionBtn notification'>
+                  {/* <div className='userActionBtn notification'>
                     <MdOutlineNotificationsActive />
-                  </div>
+                  </div> */}
                   <Link to='/ChangePassword'>
                     <div className='userActionBtn password'>
                       <MdOutlineFingerprint />
