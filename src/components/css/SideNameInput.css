@@ -55,35 +55,6 @@ input[type='date'] {
   margin: 1rem 0;
   padding: 1.5rem;
 }
-.PostedLeavePrintoutContainer input[type='file']::-webkit-file-upload-button {
-  border-radius: 10px;
-  height: 5rem;
-  margin-bottom: 2.5rem;
-  padding: 0 5rem;
-  border: 2px solid gray;
-  outline: none;
-  display: block;
-}
-.PostedLeavePrintoutContainer input[type='file']::file-selector-button {
-  border-radius: 10px;
-  height: 5rem;
-  margin-bottom: 2.5rem;
-  padding: 0 5rem;
-  border: 2px solid gray;
-  outline: none;
-
-  display: block;
-}
-.PostedLeavePrintoutContainer input[type='file']::-ms-browse {
-  border-radius: 10px;
-  height: 5rem;
-  margin-bottom: 2.5rem;
-  padding: 0 5rem;
-  border: 2px solid gray;
-  outline: none;
-
-  display: block;
-}
 button {
   display: inline-block;
   width: 100%;
