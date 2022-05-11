@@ -7,7 +7,12 @@ import TodaySchedule from './pages/TodaySchedule';
 import StudentDashboardData from './data/StudentDashboardData';
 import { PrivateRoute } from './components/PrivateRoute';
 import ChangePassword from './pages/Profile/ChangePassword';
+import StaffInformation from './pages/Profile/StaffInformation';
+import { useAuth } from './Context/AuthContext';
 const App = () => {
+  const { userData, currentUser } = useAuth();
+  console.log(userData);
+  console.log(currentUser);
   return (
     <>
       <Routes>
@@ -46,16 +51,16 @@ const App = () => {
           )
         )}
         <Route path='/Login' element={<Login />} />
-        {/* <Route
+        <Route
           path='/ProfileView'
           element={
             <PrivateRoute>
               <StudentDashboard>
-                <ProfileViewer />
+                <StaffInformation />
               </StudentDashboard>
             </PrivateRoute>
           }
-        /> */}
+        />
         <Route
           path='/ChangePassword'
           element={
