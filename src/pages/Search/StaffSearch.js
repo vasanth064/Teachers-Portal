@@ -1,30 +1,28 @@
 import React from 'react';
 import PageHeader from '../../components/PageHeader';
 import PageContent from '../../components/PageContent';
-import StudentInformationData from '../../data/StudentsData';
-import SearchBar from '../../components/css/SearchBar';
-import SearchCard from './../../components/SearchCard';
+import StaffInformationData from '../../data/StaffInformationData';
+import SearchCard from '../../components/SearchCard';
 import { BiSearch } from 'react-icons/bi';
+import SearchBar from '../../components/css/SearchBar';
 import SearchResultsContainer from '../../components/SearchResultsContainer';
 
-const StudentSearch = () => {
+const Staffsearch = () => {
   return (
     <div>
-      <PageHeader text='Student Search' />
+      <PageHeader text='Staff Search' />
       <PageContent>
-        <SearchBar
-          icon={<BiSearch size='3rem' />}
-          placeholder='Students Search'
-        />
+        <SearchBar icon={<BiSearch size='3rem' />} placeholder='Staff Search' />
         <SearchResultsContainer>
-          {StudentInformationData.StudentDet.map((item, index) => {
+          {StaffInformationData.map((item, index) => {
             return (
               <SearchCard
                 key={index}
                 image={item.img}
                 name={item.name}
-                department={item.Department}
-                designation={item.rollno}
+                qualification={item.qualification}
+                department={item.department}
+                designation={item.designation}
                 phoneNumber={item.phoneNumber}
                 email={item.email}
               />
@@ -36,4 +34,4 @@ const StudentSearch = () => {
   );
 };
 
-export default StudentSearch;
+export default Staffsearch;

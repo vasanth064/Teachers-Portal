@@ -2,10 +2,10 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import PageHeader from '../../components/PageHeader';
-import PageContent from '../../components/PageContent';
-import UniqueStaffData from '../../data/UniqueStaffData';
-import GlassSheet from './../../components/GlassSheet';
+import PageHeader from '../components/PageHeader';
+import PageContent from '../components/PageContent';
+import UniqueStaffData from '../data/UniqueStaffData';
+import GlassSheet from '../components/GlassSheet';
 
 const Container = styled.div`
   height: auto;
