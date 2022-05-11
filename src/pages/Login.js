@@ -1,38 +1,80 @@
 import React from 'react';
+import { Formik, Form, Field } from 'formik';
 import LoginData from './../data/LoginData.js';
 import LoginSwitchBtn from './../components/LoginSwitchBtn';
-import LoginInput from '../components/LoginInput.js';
+import { useAuth } from '../Context/AuthContext';
+import { Navigate } from 'react-router-dom';
 import './../assets/css/Login.css';
-
+import './../components/css/LoginInput.css';
 const Login = () => {
+  const { currentUser, emailPasswordSignIn, error, loading } = useAuth();
+
   return (
-    <div className='loginPage'>
-      {LoginData.map((item) => {
-        return (
-          <div className='header'>
-            <img className='logo' src={item.logo} alt='psg ptc logo' />
-            <h1 className='logoTitle'>{item.logoTitle}</h1>
-            <h2 className='logoSubTitle'>{item.logoSubTitle}</h2>
+    <>
+      {currentUser ? <Navigate to='/' /> : null}
+      {error ? alert(error) : null}
+      <div className='loginPage'>
+        {LoginData.map((item, index) => {
+          return (
+            <div className='loginHeader' key={index}>
+              <img className='loginLogo' src={item.logo} alt='psg ptc logo' />
+              <h1 className='loginLogoTitle'>{item.logoTitle}</h1>
+              <h2 className='loginLogoSubTitle'>{item.logoSubTitle}</h2>
+            </div>
+          );
+        })}
+
+        <div className='loginContent'>
+          <h1 className='loginContentTitle'>Login to Your Account</h1>
+          <div className='loginSwitch'>
+            <LoginSwitchBtn
+              icon='teacher'
+              text='TEACHER’S LOGIN'
+              active={true}
+            />
           </div>
-        );
-      })}
-      <div className='content'>
-        <h1 className='content-title'>Login to Your Account</h1>
-        <div className='loginSwitch'>
-          <LoginSwitchBtn icon='student' text='STUDENT’S LOGIN' active={true} />
-          <LoginSwitchBtn
-            icon='teacher'
-            text='TEACHER’S LOGIN'
-            active={false}
-          />
+          <Formik
+            initialValues={{
+              email: '',
+              password: '',
+            }}
+            onSubmit={(values) => {
+              emailPasswordSignIn(values.email, values.password);
+            }}>
+            {() => (
+              <Form className='loginFormControlGroup' autoComplete='off'>
+                <div className='loginInputGroup'>
+                  <p className='loginInputName'>Email</p>
+                  <Field
+                    className='loginInputField'
+                    name='email'
+                    type='email'
+                    required
+                  />
+                </div>
+                <div className='loginInputGroup'>
+                  <p className='loginInputName'>Password</p>
+                  <Field
+                    className='loginInputField'
+                    name='password'
+                    type='password'
+                    required
+                  />
+                </div>
+                <button
+                  className={
+                    !loading ? 'loginBtn' : 'loginBtn loginBtnDisabled'
+                  }
+                  type='submit'
+                  disabled={loading}>
+                  LOGIN
+                </button>
+              </Form>
+            )}
+          </Formik>
         </div>
-        <form className='formControlGroup'>
-          <LoginInput inputName='Roll No' type='text' />
-          <LoginInput inputName='Password' type='password' />
-          <button className='loginBtn'>LOGIN</button>
-        </form>
       </div>
-    </div>
+    </>
   );
 };
 

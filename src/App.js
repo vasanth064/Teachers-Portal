@@ -5,7 +5,7 @@ import Login from './pages/Login.js';
 import StudentDashboard from './pages/StudentDashboard';
 import TodaySchedule from './pages/TodaySchedule';
 import StudentDashboardData from './data/StudentDashboardData';
-
+import { PrivateRoute } from './components/PrivateRoute';
 const App = () => {
   return (
     <>
@@ -13,20 +13,33 @@ const App = () => {
         <Route
           path='/'
           element={
-            <StudentDashboard>
-              <TodaySchedule />
-            </StudentDashboard>
+            <PrivateRoute>
+              <StudentDashboard>
+                <TodaySchedule />
+              </StudentDashboard>
+            </PrivateRoute>
           }
         />
 
-        <Route path='StudentsDashboard' element={<Navigate replace to='/' />} />
+        <Route
+          path='StudentsDashboard'
+          element={
+            <PrivateRoute>
+              <Navigate replace to='/' />
+            </PrivateRoute>
+          }
+        />
         {StudentDashboardData.map((item) =>
           item.sidebar.navItems.map((item) =>
             item.subMenu.map((item, index) => (
               <Route
                 path={`/${item.URL}`}
                 key={index}
-                element={<StudentDashboard>{item.page}</StudentDashboard>}
+                element={
+                  <PrivateRoute>
+                    <StudentDashboard>{item.page}</StudentDashboard>
+                  </PrivateRoute>
+                }
               />
             ))
           )

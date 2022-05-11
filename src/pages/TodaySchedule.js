@@ -4,7 +4,6 @@ import PageContent from '../components/PageContent';
 import TodayScheduleData from '../data/TodayScheduleData';
 import TodayScheduleItem from '../components/TodayScheduleItem';
 import './../assets/css/todaySchedule.css';
-//change data of sunday
 const TodaySchedule = () => {
   const d = new Date();
   let day = d.getDay();

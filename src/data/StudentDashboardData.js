@@ -1,23 +1,22 @@
 import userImage from './../assets/images/UserAccount.png';
 import logo from './../assets/images/logos/Logo.png';
-import { MdOutlineDashboard } from 'react-icons/md';
-import { MdSchool } from 'react-icons/md';
-import { MdLuggage } from 'react-icons/md';
-import { SiMicrosoftacademic } from 'react-icons/si';
+import { MdOutlineDashboard, MdManageSearch } from 'react-icons/md';
+import { FaSearch, FaUserAlt } from 'react-icons/fa';
+import { BsCalendarCheck, BsPencilSquare } from 'react-icons/bs';
 import StaffSearch from '../pages/Profile/StaffSearch';
-import StaffInformation from '../pages/Profile/StaffInformation';
-import ArrearList from '../pages/Query/ArrearList';
 import AttendanceReport from '../pages/Query/AttendanceReport';
 import AttendanceReview from '../pages/Query/AttendanceReview';
 import Home from '../pages/Attendance/Home';
-import ElectiveEntry from '../pages/Attendance/ElectiveEntry';
-import ClassTimetable from '../pages/Attendance/ClassTimetable';
+import ClassTimetable from '../pages/Query/ClassTimetable';
 import LeaveManagement from '../pages/Attendance/LeaveManagement';
-import StaffTimetable from '../pages/Attendance/StaffTimetable';
 import CAMarkEntry from '../pages/Assesment/CAMarkEntry';
-import LabFinalExam from '../pages/Assesment/LabFinalExam';
-import StudentInformation from './../pages/Query/StudentInformation';
 import StudentSearch from '../pages/Query/StudentSearch';
+// import StaffInformation from '../pages/Profile/StaffInformation';
+// import ArrearList from '../pages/Query/ArrearList';
+// import ElectiveEntry from '../pages/Attendance/ElectiveEntry';
+// import StaffTimetable from '../pages/Attendance/StaffTimetable';
+// import LabFinalExam from '../pages/Assesment/LabFinalExam';
+// import StudentInformation from './../pages/Query/StudentInformation';
 // import { BiSitemap } from 'react-icons/bi';
 
 const StudentDashboardData = [
@@ -36,99 +35,92 @@ const StudentDashboardData = [
           subMenu: [],
         },
         {
-          navTitle: 'Profile',
-          navIcon: <SiMicrosoftacademic />,
+          navTitle: 'Search',
+          navIcon: <FaSearch />,
           subMenu: [
             {
-              title: 'Staff Search',
-              // icon: <BiSitemap />,
-              URL: 'Staffsearch',
-              page: <StaffSearch />,
+              title: 'Students Search',
+              URL: 'searchStudents',
+              page: <StudentSearch />,
             },
             {
-              title: 'Staff Information',
-              URL: 'StaffInformation',
-              page: <StaffInformation />,
+              title: 'Teachers Search',
+              URL: 'searchTeachers',
+              page: <StaffSearch />,
             },
           ],
         },
         {
           navTitle: 'Query',
-          navIcon: <MdSchool />,
+          navIcon: <MdManageSearch />,
           subMenu: [
             {
-              title: 'Students Search',
-              URL: 'StudentSearch',
-              page: <StudentSearch />,
+              title: 'Class Timetable',
+              URL: 'classTimetable',
+              page: <ClassTimetable />,
             },
             {
-              title: 'Student Information',
-              URL: 'StudentInformation',
-              page: <StudentInformation />,
+              title: 'Posted Leaves',
+              URL: 'postedLeaves',
+              page: <LeaveManagement />,
             },
             {
-              title: 'Arrear List',
-              URL: 'ArrearList',
-              page: <ArrearList />,
-            },
-            {
-              title: 'Attendance Report',
-              URL: 'AttendanceReport',
-              page: <AttendanceReport />,
-            },
-            {
-              title: 'Attendance Review Report',
-              URL: 'AttendanceReview',
-              page: <AttendanceReview />,
+              title: 'Class Reports',
+              URL: 'classReports',
+              page: <Home />,
             },
           ],
         },
         {
           navTitle: 'Attendance',
-          navIcon: <MdLuggage />,
-          navURL: '/Hostel',
+          navIcon: <BsCalendarCheck />,
           subMenu: [
             {
-              title: 'Home',
-              URL: 'Home',
-              page: <Home />,
+              title: 'Attendance Entry',
+              URL: 'internalMarkEntry',
+              page: <CAMarkEntry />,
             },
             {
-              title: 'Elective Entry',
-              URL: 'ElectiveEntry',
-              page: <ElectiveEntry />,
+              title: 'Attendance Review',
+              URL: 'semesterMarkEntry',
+              page: <AttendanceReview />,
             },
             {
-              title: 'Class Timetable',
-              URL: 'ClassTimetable',
-              page: <ClassTimetable />,
-            },
-            {
-              title: 'Leave Management',
-              URL: 'LeaveManagement',
-              page: <LeaveManagement />,
-            },
-            {
-              title: 'Staff Timetable',
-              URL: 'StaffTimetable',
-              page: <StaffTimetable />,
+              title: 'Attendance Report',
+              URL: 'semesterMarkEntry',
+              page: <AttendanceReport />,
             },
           ],
         },
         {
           navTitle: 'Assesment',
-          navIcon: <MdLuggage />,
-          navURL: '/Hostel',
+          navIcon: <BsPencilSquare />,
           subMenu: [
             {
-              title: 'CA Marks Entry',
-              URL: 'CAMarkEntry',
+              title: 'Internal Marks Entry',
+              URL: 'internalMarkEntry',
               page: <CAMarkEntry />,
             },
             {
-              title: 'Lab Exam Mark Entry',
-              URL: 'LabFinalExam',
-              page: <LabFinalExam />,
+              title: 'Semester Marks Entry',
+              URL: 'semesterMarkEntry',
+              page: <CAMarkEntry />,
+            },
+          ],
+        },
+        {
+          navTitle: 'Profile',
+          navIcon: <FaUserAlt />,
+          subMenu: [
+            {
+              title: 'Add Timetable',
+              URL: 'internalMarkEntry',
+              page: <CAMarkEntry />,
+            },
+            {
+              title: 'Update Profile',
+              URL: 'updateProfile',
+              page: <CAMarkEntry />,
             },
           ],
         },
