@@ -19,7 +19,7 @@ const InputHeader = styled.h1`
 const UpdateProfile = () => {
   const { getFileURL, updateData } = useFirestore();
   const { userData } = useAuth();
-  const tableName = 'students';
+  const tableName = 'teachers';
   const navigate = useNavigate();
   return (
     <div>
