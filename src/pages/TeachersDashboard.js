@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './../assets/css/StudentDashboard.css';
+import './../assets/css/TeachersDashboard.css';
 import MediaQuery from 'react-responsive';
 import SideBarMenuIcon from './../assets/images/icons/SidebarMenu.svg';
-import StudentDashboardData from '../data/StudentDashboardData.js';
+import TeachersDashboardData from '../data/TeachersDashboardData.js';
 import {
   MdOutlineFingerprint,
   MdOutlineLogout,
@@ -10,13 +10,13 @@ import {
 } from 'react-icons/md';
 import NavItem from '../components/DashboardNavItem';
 import { Link, Navigate, NavLink } from 'react-router-dom';
-import StudentDashboardMobile from './StudentDashboardMobile';
+import TeachersDashboardMobile from './TeachersDashboardMobile';
 import { useAuth } from '../Context/AuthContext';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../Config/firebaseConfig';
 import Loader from '../components/Loader';
 
-const StudentDashboard = ({ children }) => {
+const TeachersDashboard = ({ children }) => {
   const [sideBar, setSideBar] = useState(false);
   const backgrounds = [
     'royalBlue',
@@ -61,7 +61,7 @@ const StudentDashboard = ({ children }) => {
         <div
           className='StudentsDashboardPage'
           style={{ background: backgrounds[background] }}>
-          {StudentDashboardData.map((item, index) =>
+          {TeachersDashboardData.map((item, index) =>
             sideBar ? (
               <div
                 className='dashboardSidebar'
@@ -139,7 +139,7 @@ const StudentDashboard = ({ children }) => {
                 ? { left: '35rem', width: 'calc(100vw - 35rem)' }
                 : { left: '10rem', width: 'calc(100vw - 10rem)' }
             }>
-            {StudentDashboardData.map((item, index) => (
+            {TeachersDashboardData.map((item, index) => (
               <div className='dashboardHeader' key={index}>
                 <Link to='/ProfileView'>
                   <div className='dashboardHeaderLeft'>
@@ -182,10 +182,10 @@ const StudentDashboard = ({ children }) => {
         </div>
       </MediaQuery>
       <MediaQuery maxWidth={900}>
-        <StudentDashboardMobile>{children}</StudentDashboardMobile>
+        <TeachersDashboardMobile>{children}</TeachersDashboardMobile>
       </MediaQuery>
     </>
   );
 };
 
-export default StudentDashboard;
+export default TeachersDashboard;

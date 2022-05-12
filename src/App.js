@@ -2,9 +2,9 @@ import React from 'react';
 import { Route, Routes, Navigate } from 'react-router';
 import './assets/css/App.css';
 import Login from './pages/Login.js';
-import StudentDashboard from './pages/StudentDashboard';
+import TeachersDashboard from './pages/TeachersDashboard';
 import TodaySchedule from './pages/TodaySchedule';
-import StudentDashboardData from './data/StudentDashboardData';
+import TeachersDashboardData from './data/TeachersDashboardData';
 import { PrivateRoute } from './components/PrivateRoute';
 import ChangePassword from './pages/Profile/ChangePassword';
 import StaffInformation from './pages/Profile/StaffInformation';
@@ -22,22 +22,22 @@ const App = () => {
           path='/'
           element={
             <PrivateRoute>
-              <StudentDashboard>
+              <TeachersDashboard>
                 <TodaySchedule />
-              </StudentDashboard>
+              </TeachersDashboard>
             </PrivateRoute>
           }
         />
 
         <Route
-          path='StudentsDashboard'
+          path='TeachersDashboard'
           element={
             <PrivateRoute>
               <Navigate replace to='/' />
             </PrivateRoute>
           }
         />
-        {StudentDashboardData.map((item) =>
+        {TeachersDashboardData.map((item) =>
           item.sidebar.navItems.map((item) =>
             item.subMenu.map((item, index) => (
               <Route
@@ -45,7 +45,7 @@ const App = () => {
                 key={index}
                 element={
                   <PrivateRoute>
-                    <StudentDashboard>{item.page}</StudentDashboard>
+                    <TeachersDashboard>{item.page}</TeachersDashboard>
                   </PrivateRoute>
                 }
               />
@@ -56,9 +56,9 @@ const App = () => {
           path='searchStudents/:rollno'
           element={
             <PrivateRoute>
-              <StudentDashboard>
+              <TeachersDashboard>
                 <StudentInformation />
-              </StudentDashboard>
+              </TeachersDashboard>
             </PrivateRoute>
           }
         />
@@ -66,9 +66,9 @@ const App = () => {
           path='searchTeachers/:staffID'
           element={
             <PrivateRoute>
-              <StudentDashboard>
+              <TeachersDashboard>
                 <StaffSearchProfile />
-              </StudentDashboard>
+              </TeachersDashboard>
             </PrivateRoute>
           }
         />
@@ -78,9 +78,9 @@ const App = () => {
           path='/ProfileView'
           element={
             <PrivateRoute>
-              <StudentDashboard>
+              <TeachersDashboard>
                 <StaffInformation />
-              </StudentDashboard>
+              </TeachersDashboard>
             </PrivateRoute>
           }
         />
@@ -88,9 +88,9 @@ const App = () => {
           path='/ChangePassword'
           element={
             <PrivateRoute>
-              <StudentDashboard>
+              <TeachersDashboard>
                 <ChangePassword />
-              </StudentDashboard>
+              </TeachersDashboard>
             </PrivateRoute>
           }
         />

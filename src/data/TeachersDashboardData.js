@@ -22,7 +22,7 @@ import SemesterMarkEntry from '../pages/Assesment/SemesterMarkEntry';
 import UpdateProfile from '../pages/Profile/UpdateProfile';
 import AddTimeTable from '../pages/Profile/AddTimeTable';
 
-const StudentDashboardData = [
+const TeachersDashboardData = [
   {
     header: {
       userImage,
@@ -132,4 +132,4 @@ const StudentDashboardData = [
   },
 ];
 
-export default StudentDashboardData;
+export default TeachersDashboardData;

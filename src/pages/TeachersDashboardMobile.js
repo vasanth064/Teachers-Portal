@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import './../assets/css/StudentDashboardMobile.css';
+import './../assets/css/TeachersDashboardMobile.css';
 import SideBarMenuIcon from './../assets/images/icons/SidebarMenu.svg';
 import SideBarMenuCloseIcon from './../assets/images/icons/SidebarMenuClose.svg';
 import NavItem from '../components/DashboardNavItem';
-import StudentDashboardData from '../data/StudentDashboardData.js';
+import TeachersDashboardData from '../data/TeachersDashboardData.js';
 import {
   MdOutlineLogout,
   MdColorLens,
@@ -15,7 +15,7 @@ import { db } from '../Config/firebaseConfig';
 import { Link, Navigate } from 'react-router-dom';
 import Loader from '../components/Loader';
 
-const StudentDashboardMobile = ({ children }) => {
+const TeachersDashboardMobile = ({ children }) => {
   const [mobileSidebar, setMobileSidebar] = useState(false);
   const backgrounds = [
     'royalBlue',
@@ -59,7 +59,7 @@ const StudentDashboardMobile = ({ children }) => {
       className='StudentsDashboardMobilePage'
       style={{ background: backgrounds[background] }}>
       <div className='dashboardSidebarContainerMobile'>
-        {StudentDashboardData.map((item, index) => (
+        {TeachersDashboardData.map((item, index) => (
           <div
             className={
               background
@@ -131,4 +131,4 @@ const StudentDashboardMobile = ({ children }) => {
   );
 };
 
-export default StudentDashboardMobile;
+export default TeachersDashboardMobile;
