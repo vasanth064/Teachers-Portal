@@ -1,6 +1,5 @@
 import { db, storageBucket } from '../Config/firebaseConfig';
 import React, { useContext } from 'react';
-import { where } from 'firebase/firestore';
 
 import {
   addDoc,

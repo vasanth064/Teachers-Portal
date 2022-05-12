@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { FaPhoneAlt } from 'react-icons/fa';
 import { IoIosMail } from 'react-icons/io';
+import { Link } from 'react-router-dom';
 
-const Container = styled.a`
+const Container = styled(Link)`
   border: none;
   justify-content: center;
   text-align: center;
@@ -108,28 +109,30 @@ const SearchCard = ({
   name,
   qualification,
   department,
-  designation,
+  rollno,
   phoneNumber,
   email,
 }) => {
   return (
-    <Container href=''>
-      <ProfileImage alt={name} src={image} />
-      <NameContainer>
-        <Name>{name}</Name>
-        <Qualification>{qualification}</Qualification>
-      </NameContainer>
-      <Department>{department}</Department>
-      <Designation>{designation}</Designation>
-      <Footer>
-        <Email href={`mailto:${email}`}>
-          <IoIosMail size='3rem' />
-        </Email>
-        <Phone href={`tel:${phoneNumber}`}>
-          <FaPhoneAlt size='2.5rem' />
-        </Phone>
-      </Footer>
-    </Container>
+    <>
+      <Container to={`${rollno}`}>
+        <ProfileImage alt={name} src={image} />
+        <NameContainer>
+          <Name>{name}</Name>
+          <Qualification>{qualification}</Qualification>
+        </NameContainer>
+        <Department>{department}</Department>
+        <Designation>{rollno}</Designation>
+        <Footer>
+          <Email href={`mailto:${email}`}>
+            <IoIosMail size='3rem' />
+          </Email>
+          <Phone href={`tel:${phoneNumber}`}>
+            <FaPhoneAlt size='2.5rem' />
+          </Phone>
+        </Footer>
+      </Container>
+    </>
   );
 };
 

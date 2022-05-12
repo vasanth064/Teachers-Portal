@@ -9,6 +9,8 @@ import { PrivateRoute } from './components/PrivateRoute';
 import ChangePassword from './pages/Profile/ChangePassword';
 import StaffInformation from './pages/Profile/StaffInformation';
 import { useAuth } from './Context/AuthContext';
+import StudentInformation from './components/StudentInformation';
+import StaffSearchProfile from './components/StaffSearchProfile';
 const App = () => {
   const { userData, currentUser } = useAuth();
   console.log(userData);
@@ -50,6 +52,27 @@ const App = () => {
             ))
           )
         )}
+        <Route
+          path='searchStudents/:rollno'
+          element={
+            <PrivateRoute>
+              <StudentDashboard>
+                <StudentInformation />
+              </StudentDashboard>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path='searchTeachers/:staffID'
+          element={
+            <PrivateRoute>
+              <StudentDashboard>
+                <StaffSearchProfile />
+              </StudentDashboard>
+            </PrivateRoute>
+          }
+        />
+
         <Route path='/Login' element={<Login />} />
         <Route
           path='/ProfileView'
