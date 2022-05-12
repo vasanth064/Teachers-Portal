@@ -1,3 +1,4 @@
+import { Field } from 'formik';
 import React from 'react';
 import styled from 'styled-components';
 import frostImg from './../../assets/images/backgrounds/frost.png';
@@ -51,18 +52,14 @@ const SearchInput = styled.input`
   outline: none;
 `;
 
-const SearchBar = ({ icon, type, placeholder }, ...props) => {
+const SearchBar = ({ icon, ...props }) => {
   return (
     <FormContainer>
       <IconContainer>
         <Frost />
         {icon || <p>Search</p>}
       </IconContainer>
-      <SearchInput
-        type={type || 'text'}
-        placeholder={placeholder || 'Type to Search'}
-        {...props}
-      />
+      <SearchInput {...props} />
     </FormContainer>
   );
 };
