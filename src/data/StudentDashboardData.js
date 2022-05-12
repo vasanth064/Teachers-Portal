@@ -85,12 +85,12 @@ const StudentDashboardData = [
             },
             {
               title: 'Attendance Review',
-              URL: 'semesterMarkEntry',
+              URL: 'attendancereview',
               page: <AttendanceReview />,
             },
             {
               title: 'Attendance Report',
-              URL: 'semesterMarkEntry',
+              URL: 'attendancereport',
               page: <AttendanceReport />,
             },
           ],
@@ -117,7 +117,7 @@ const StudentDashboardData = [
           subMenu: [
             {
               title: 'Add Timetable',
-              URL: 'internalMarkEntry',
+              URL: 'addtimetable',
               page: <AddTimeTable />,
             },
             {

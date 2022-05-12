@@ -1,8 +1,13 @@
 import React from 'react'
+import PageContent from '../../components/PageContent'
+import PageHeader from '../../components/PageHeader'
 
 const AddTimeTable = () => {
   return (
-    <div>AddTimeTable</div>
+    <div>
+      <PageHeader text='Add Time Table'/>
+      <PageContent>Add TimeTable</PageContent>
+    </div>
   )
 }
 
