@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import GlassSheet from '../../components/GlassSheet';
 import styled from 'styled-components';
 import PageHeader from '../../components/PageHeader';
 import PageContent from '../../components/PageContent';
 import { useAuth } from './../../Context/AuthContext';
-import { useFirestore } from '../../Context/FirestoreContext';
-import { where } from 'firebase/firestore';
-import InputField from '../../components/InputField';
 
 const Container = styled.div`
   height: auto;
@@ -84,37 +81,10 @@ const StaffDetailsContent = styled.div`
   letter-spacing: 0.07em;
   margin: 1rem 0;
 `;
-const ContentHeader = styled.h1`
-  font-size: 2.5rem;
-  font-weight: 600;
-  letter-spacing: 0.07em;
-  margin: 5rem 0rem 3rem 0rem;
-`;
-const CertificateViewer = styled.div`
-  justify-content: center;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4rem;
-`;
-const CertificateHeader = styled.div`
-  margin: 8rem 0rem 4rem 0rem;
-`;
 
 const StaffInformation = () => {
   const { userData } = useAuth();
-  const { getData } = useFirestore();
-  const [studentProjects, setStudentProjects] = useState([]);
-  const [studentCCertificates, setStudentCCertificates] = useState([]);
-  const [studentCoCertificates, setStudentCoCertificates] = useState([]);
-  const [studentExCertificates, setStudentExCertificates] = useState([]);
-  useEffect(() => {
-    (async () => {
-      const data = await getData('studentProjects', [
-        where('rollno', '==', userData.rollno),
-      ]);
-      setStudentProjects(data);
-    })();
-  }, []);
+
   return (
     <div>
       <PageHeader text='Profile View' />

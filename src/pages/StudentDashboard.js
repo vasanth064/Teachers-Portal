@@ -4,7 +4,6 @@ import MediaQuery from 'react-responsive';
 import SideBarMenuIcon from './../assets/images/icons/SidebarMenu.svg';
 import StudentDashboardData from '../data/StudentDashboardData.js';
 import {
-  MdOutlineNotificationsActive,
   MdOutlineFingerprint,
   MdOutlineLogout,
   MdColorLens,
