@@ -81,12 +81,7 @@ const StudentSearch = () => {
                 />
                 <FormSelect
                   handleFormSelect={handleFormSelect}
-                  data={[
-                    { name: '2019', value: '2019' },
-                    { name: '2020', value: '2020' },
-                    { name: '2021', value: '2021' },
-                    { name: 'All', value: null },
-                  ]}
+                  data={['2019', '2020', '2021', 'all']}
                 />
               </div>
             </FormContainer>

@@ -29,8 +29,8 @@ const FormSelect = ({ handleFormSelect, data, ...props }) => {
     <Conatiner {...props} onChange={(e) => handleFormSelect(e.target.value)}>
       {data &&
         data.map((item, index) => (
-          <Options value={item.value} key={index}>
-            {item.name}
+          <Options value={item} key={index}>
+            {item}
           </Options>
         ))}
     </Conatiner>
