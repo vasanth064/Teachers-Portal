@@ -32,9 +32,39 @@ const Container = styled.div`
     z-index: 1;
   }
 `;
+const Button = styled.button`
+  margin-top: 2.5rem;
+  background: #99add3;
+  border-radius: 2rem;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  text-transform: uppercase;
+  position: relative;
+  cursor: pointer;
+  color: white;
 
+  &::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    border-radius: 2rem;
+    width: 100%;
+    height: 100%;
+    background: url(${frostImg});
+    mix-blend-mode: overlay;
+    opacity: 0.5;
+    z-index: 10;
+  }
+`;
 const FormContainer = ({ children }) => {
-  return <Container>{children}</Container>;
+  return (
+    <Container>
+      {children}
+      <Button type='submit'>Submit</Button>
+    </Container>
+  );
 };
 
 export default FormContainer;

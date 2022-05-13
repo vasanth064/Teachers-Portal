@@ -39,8 +39,8 @@ const FormOptions = ({
   index,
   name,
   ...props
-}) => {
-  return data.map((name, index) => (
+}) =>
+  data.map((name, index) => (
     <Option
       key={index}
       onClick={() => handleActiveFormOption(index)}
@@ -49,6 +49,5 @@ const FormOptions = ({
       {name}
     </Option>
   ));
-};
 
 export default FormOptions;
