@@ -114,25 +114,23 @@ const SearchCard = ({
   email,
 }) => {
   return (
-    <>
-      <Container to={`${rollno}`}>
-        <ProfileImage alt={name} src={image} />
-        <NameContainer>
-          <Name>{name}</Name>
-          <Qualification>{qualification}</Qualification>
-        </NameContainer>
-        <Department>{department}</Department>
-        <Designation>{rollno}</Designation>
-        <Footer>
-          <Email href={`mailto:${email}`}>
-            <IoIosMail size='3rem' />
-          </Email>
-          <Phone href={`tel:${phoneNumber}`}>
-            <FaPhoneAlt size='2.5rem' />
-          </Phone>
-        </Footer>
-      </Container>
-    </>
+    <Container to={`${rollno}`}>
+      <ProfileImage alt={name} src={image} loading='lazy' />
+      <NameContainer>
+        <Name>{name}</Name>
+        <Qualification>{qualification}</Qualification>
+      </NameContainer>
+      <Department>{department}</Department>
+      <Designation>{rollno}</Designation>
+      <Footer>
+        <Email href={`mailto:${email}`}>
+          <IoIosMail size='3rem' />
+        </Email>
+        <Phone href={`tel:${phoneNumber}`}>
+          <FaPhoneAlt size='2.5rem' />
+        </Phone>
+      </Footer>
+    </Container>
   );
 };
 
