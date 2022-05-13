@@ -5,6 +5,7 @@ import frostImg from './../../assets/images/backgrounds/frost.png';
 const FormContainer = styled.div`
   position: relative;
   width: 100%;
+  z-index: 10;
 `;
 const Frost = styled.div`
   position: absolute;

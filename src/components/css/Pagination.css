@@ -1,0 +1,39 @@
+.Pagination-Body {
+  width: 100%;
+  height: auto;
+  align-items: center;
+  justify-content: space-evenly;
+  display: flex;
+  flex-wrap: nowrap;
+  margin-top: 1rem;
+  box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.25);
+  border-radius: 5rem;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+button {
+  font-size: 2rem;
+  width: 100%;
+  padding: 1.2rem 0rem;
+  background: #ffffff;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 1px 0rem;
+  border: none;
+}
+.btnf {
+  border-radius: 1rem 0rem 0rem 1rem;
+}
+.btnl {
+  border-radius: 0rem 1rem 1rem 0rem;
+}
+.btnActive {
+  background: black;
+  color: white;
+}
+@media only screen and (max-width: 500px) {
+  button {
+    font-size: 1.5rem;
+  }
+}
