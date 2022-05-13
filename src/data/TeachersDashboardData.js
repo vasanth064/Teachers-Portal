@@ -11,7 +11,6 @@ import StudentSearch from '../pages/Search/StudentSearch';
 import ClassTimetable from '../pages/Query/ClassTimetable';
 import ClassReport from '../pages/Query/ClassReport';
 
-import AttendanceHome from '../pages/Attendance/AttendanceHome';
 import PostedLeave from '../pages/Attendance/PostedLeave';
 import AttendanceReview from '../pages/Attendance/AttendanceReview';
 import AttendanceReport from '../pages/Attendance/AttendanceReport';
@@ -73,11 +72,6 @@ const TeachersDashboardData = [
           navTitle: 'Attendance',
           navIcon: <BsCalendarCheck />,
           subMenu: [
-            {
-              title: 'Attendance Home',
-              URL: 'attendancehome',
-              page: <AttendanceHome />,
-            },
             {
               title: 'Posted Leaves',
               URL: 'postedLeaves',
