@@ -1,19 +1,35 @@
-import React, { useState } from 'react';
+import { where } from 'firebase/firestore';
+import React, { useState, useEffect } from 'react';
 import FormContainer from '../../components/FormContainer';
 import FormLabel from '../../components/FormLabel';
 import FormSelect from '../../components/FormSelect';
 import PageContent from '../../components/PageContent';
 import PageHeader from '../../components/PageHeader';
 import Pagination from '../../components/Pagination';
+import Table from '../../components/Table';
+import { useFirestore } from '../../Context/FirestoreContext';
 
 const ClassTimetable = () => {
+  const { getData } = useFirestore();
   const [semester, setSemester] = useState('1');
   const [deparment, setDepartment] = useState('Apparel Technology');
   const [batch, setBatch] = useState('2019');
+  const [table, setTable] = useState([]);
 
   const handlePagination = (value) => setSemester(value);
   const handleDepartmentSelect = (value) => setDepartment(value);
   const handleBatchSelect = (value) => setBatch(value);
+
+  useEffect(() => {
+    (async () => {
+      const data = await getData('classTimetable', [
+        where('department', '==', deparment),
+        where('batch', '==', batch),
+        where('semester', '==', semester),
+      ]);
+      console.log(data);
+    })();
+  }, [deparment, batch, semester]);
 
   return (
     <div>
@@ -56,6 +72,9 @@ const ClassTimetable = () => {
             />
           </FormContainer>
         </form>
+        <PageContent>
+          <Table />
+        </PageContent>
       </PageContent>
     </div>
   );
