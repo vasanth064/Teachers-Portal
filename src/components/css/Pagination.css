@@ -12,14 +12,14 @@
   position: relative;
   z-index: 1;
 }
-button {
-  font-size: 2rem;
+.pagination {
   width: 100%;
   padding: 1.2rem 0rem;
   background: #ffffff;
   font-size: 2rem;
   font-weight: 700;
   margin: 1px 0rem;
+  text-align: center;
   border: none;
 }
 .btnf {
@@ -33,7 +33,7 @@ button {
   color: white;
 }
 @media only screen and (max-width: 500px) {
-  button {
+  .pagination {
     font-size: 1.5rem;
   }
 }
