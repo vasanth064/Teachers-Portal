@@ -33,6 +33,10 @@ const Container = styled.div`
   }
 `;
 const Button = styled.button`
+  padding: 1.2rem 0rem;
+  font-size: 2rem;
+  font-weight: 700;
+  border: none;
   margin-top: 2.5rem;
   background: #99add3;
   border-radius: 2rem;

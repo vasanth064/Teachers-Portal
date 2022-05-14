@@ -1,0 +1,15 @@
+By order
+
+-- Posted Leaves Review
+-- Teacher Timetable
+-- Semester Mark Entry
+-- Internal Mark Entry
+-- gloabl color scheme and color scheme match
+
+-- Class Reports
+    --batch semester marks
+    --batch internal marks
+    --batch monthly posted Leaves
+
+-- send bacth notification (circulars)
+-- send student notification 

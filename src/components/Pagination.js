@@ -6,12 +6,16 @@ const Pagination = ({ pageno, pagination, handlePagination }) => {
     <div>
       <div className='Pagination-Body'>
         {pageno.map((item, index) => (
-          <button
+          <div
             key={index}
-            onClick={() => handlePagination(item)}
-            className={pagination === item ? 'btn1 btnActive' : 'btn1'}>
+            onClick={() =>handlePagination(item)}
+            className={
+              pagination === item
+                ? 'pagination btn1 btnActive'
+                : 'pagination btn1'
+            }>
             {item}
-          </button>
+          </div>
         ))}
       </div>
     </div>
