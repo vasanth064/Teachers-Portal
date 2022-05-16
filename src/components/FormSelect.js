@@ -25,8 +25,17 @@ const Options = styled.option`
 `;
 
 const FormSelect = ({ handleFormSelect, data, ...props }) => {
-  return (
+  return handleFormSelect ? (
     <Conatiner {...props} onChange={(e) => handleFormSelect(e.target.value)}>
+      {data &&
+        data.map((item, index) => (
+          <Options value={item} key={index}>
+            {item}
+          </Options>
+        ))}
+    </Conatiner>
+  ) : (
+    <Conatiner {...props}>
       {data &&
         data.map((item, index) => (
           <Options value={item} key={index}>
