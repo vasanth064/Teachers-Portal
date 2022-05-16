@@ -16,7 +16,8 @@ const AttendanceReport = () => {
       <PageContent>
         <ContentBody>
           <Table />
-          <GreenButton style={{ color: 'white', margin: '4rem' }}>
+          <GreenButton
+            style={{ color: 'white', margin: '4rem 0rem 0rem 0rem' }}>
             Get Report
           </GreenButton>
         </ContentBody>

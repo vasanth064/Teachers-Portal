@@ -15,6 +15,7 @@ const Container = styled.select`
   letter-spacing: 0.07em;
   text-transform: capitalize;
   border: 2px solid #c3c3c3;
+  width: 100%;
 `;
 
 const FContainer = styled(Field)`
@@ -30,6 +31,7 @@ const FContainer = styled(Field)`
   letter-spacing: 0.07em;
   text-transform: capitalize;
   border: 2px solid #c3c3c3;
+  width: 100%;
 `;
 
 const Options = styled.option`
