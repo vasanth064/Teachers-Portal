@@ -9,20 +9,6 @@ import PageContent from '../../components/PageContent';
 import PageHeader from '../../components/PageHeader';
 
 const AddTimeTable = () => {
-  const periods = [
-    {
-      1: '09:20 - 10:10',
-      2: '10:30 - 11:20',
-      3: '11:20 - 12:10',
-      4: '12:10 - 12:40',
-      5: '13:50 - 14:30',
-      6: '14:30 - 15:10',
-      7: '15:30 - 16:10',
-      8: '16:10 - 17:10',
-      9: '17:10 - 18:00',
-      10: '18:20 - 19:00',
-    },
-  ];
   return (
     <div>
       <PageHeader text='Add Time Table' />
@@ -42,24 +28,14 @@ const AddTimeTable = () => {
               semester: '',
             }}
             onSubmit={(values) => {
-              console.log(
-                values.days,
-                values.hour,
-                values.from,
-                values.to,
-                values.coursecode,
-                values.coursetitle,
-                values.facultyincharge,
-                values.batch,
-                values.department,
-                values.semester
-              );
+              console.log(values.days);
             }}>
             <Form>
               <div>
                 <FormLabel name='Days' />
                 <FormSelect
                   name='days'
+                  as='select'
                   data={[
                     'Monday',
                     'Tuesday',
@@ -75,6 +51,7 @@ const AddTimeTable = () => {
                 <FormLabel name='Hour' />
                 <FormSelect
                   name='hour'
+                  as='select'
                   data={['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']}
                   style={{ width: '100%' }}
                 />
@@ -120,6 +97,7 @@ const AddTimeTable = () => {
                     'Textile Technology',
                   ]}
                   name='department'
+                  as='select'
                   style={{ width: '100%' }}
                 />
                 <div>
@@ -127,12 +105,12 @@ const AddTimeTable = () => {
                   <FormSelect
                     data={['1', '2', '3', '4', '5', '6', '7', '8']}
                     name='semester'
+                    as='select'
                     style={{ width: '100%' }}
                   />
                 </div>
               </div>
               <GreenButton
-                onClick={onsubmit}
                 style={{ marginTop: '3rem', width: '100%', color: 'white' }}>
                 Add TimeTable
               </GreenButton>
