@@ -28,11 +28,38 @@ const AddTimeTable = () => {
       <PageHeader text='Add Time Table' />
       <PageContent>
         <GlassSheet>
-          <Formik initialValues={{ semester: '', batch: '', department: '' }}>
+          <Formik
+            initialValues={{
+              days: '',
+              hour: '',
+              from: '',
+              to: '',
+              coursecode: '',
+              coursetitle: '',
+              facultyincharge: '',
+              batch: '',
+              department: '',
+              semester: '',
+            }}
+            onSubmit={(values) => {
+              console.log(
+                values.days,
+                values.hour,
+                values.from,
+                values.to,
+                values.coursecode,
+                values.coursetitle,
+                values.facultyincharge,
+                values.batch,
+                values.department,
+                values.semester
+              );
+            }}>
             <Form>
               <div>
                 <FormLabel name='Days' />
                 <FormSelect
+                  name='days'
                   data={[
                     'Monday',
                     'Tuesday',
@@ -47,15 +74,18 @@ const AddTimeTable = () => {
               <div>
                 <FormLabel name='Hour' />
                 <FormSelect
+                  name='hour'
                   data={['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']}
                   style={{ width: '100%' }}
                 />
               </div>
               <div>
-                <FormLabel name='Duration' />
-                {periods.map((item, index) => (
-                  <InputField value={item[6]} disabled='true' />
-                ))}
+                <FormLabel name='From' />
+                <InputField type='time' name='from' />
+              </div>
+              <div>
+                <FormLabel name='To' />
+                <InputField type='time' name='to' />
               </div>
               <div>
                 <FormLabel name='Course Code' />
@@ -102,6 +132,7 @@ const AddTimeTable = () => {
                 </div>
               </div>
               <GreenButton
+                onClick={onsubmit}
                 style={{ marginTop: '3rem', width: '100%', color: 'white' }}>
                 Add TimeTable
               </GreenButton>
