@@ -7,7 +7,7 @@ const StudentContainer = styled.div`
   background: rgba(255, 249, 249, 0.4);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 2rem;
-  width: 30rem;
+  width: 30rem !important;
   height: auto;
 `;
 

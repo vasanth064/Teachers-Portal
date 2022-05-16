@@ -9,7 +9,7 @@ const Container = styled.div`
 `;
 const Label = styled.label`
   text-transform: capitalize;
-  margin-left: 2rem;
+  margin: 3rem 0rem 1rem 1rem;
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 600;

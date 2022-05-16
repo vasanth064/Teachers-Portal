@@ -3,7 +3,8 @@ import { Field } from 'formik';
 import styled from 'styled-components';
 
 const Input = styled(Field)`
-  font-size: 2rem;
+  font-size: 1.8rem;
+  font-weight: 500;
   height: 7rem;
   width: 100%;
   border-radius: 2rem;
