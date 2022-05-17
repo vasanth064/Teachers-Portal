@@ -1,5 +1,4 @@
 import { Form, Formik } from 'formik';
-import { values } from 'lodash';
 import React from 'react';
 import FormLabel from '../../components/FormLabel';
 import FormSelect from '../../components/FormSelect';
@@ -8,6 +7,7 @@ import GreenButton from '../../components/GreenButton';
 import InputField from '../../components/InputField';
 import PageContent from '../../components/PageContent';
 import PageHeader from '../../components/PageHeader';
+import Table from '../../components/Table';
 
 const InternalMarkEntry = () => {
   return (
@@ -27,6 +27,9 @@ const InternalMarkEntry = () => {
               maximumMarks: '',
               questionTaken: '',
               studentMark: '',
+            }}
+            onSubmit={(values) => {
+              console.log(values);
             }}>
             <Form>
               <div>
@@ -52,9 +55,6 @@ const InternalMarkEntry = () => {
                     '19DX09',
                     '19DX10',
                   ]}
-                  onSubmit={(values) => {
-                    console.log(values);
-                  }}
                 />
               </div>
               <div>
@@ -109,11 +109,15 @@ const InternalMarkEntry = () => {
               </div>
               <GreenButton
                 style={{ marginTop: '3rem', width: '100%', color: 'white' }}>
-                Include Marks
+                Include Score
               </GreenButton>
             </Form>
           </Formik>
         </GlassSheet>
+        <PageHeader style={{ marginTop: '5rem' }} text='Report' />
+        <PageContent>
+          <Table />
+        </PageContent>
       </PageContent>
     </div>
   );
