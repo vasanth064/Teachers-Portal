@@ -62,11 +62,11 @@ const Button = styled.button`
     z-index: 10;
   }
 `;
-const FormContainer = ({ children }) => {
+const FormContainer = ({ children, button }) => {
   return (
     <Container>
       {children}
-      <Button type='submit'>Submit</Button>
+      {button && <Button type='submit'>Submit</Button>}
     </Container>
   );
 };
