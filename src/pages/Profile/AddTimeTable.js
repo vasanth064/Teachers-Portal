@@ -1,4 +1,4 @@
-import { Form, Formik } from 'formik';
+import { Field, Form, Formik } from 'formik';
 import React from 'react';
 import FormLabel from '../../components/FormLabel';
 import FormSelect from '../../components/FormSelect';
@@ -28,33 +28,37 @@ const AddTimeTable = () => {
               semester: '',
             }}
             onSubmit={(values) => {
-              console.log(values.days);
+              console.log(values);
             }}>
             <Form>
               <div>
                 <FormLabel name='Days' />
-                <FormSelect
-                  name='days'
-                  as='select'
-                  data={[
+                <Field as='select' name='days' style={{ width: '100%' }}>
+                  {[
                     'Monday',
                     'Tuesday',
                     'Wednesday',
                     'Thursday',
                     'Friday',
                     'Saturday',
-                  ]}
-                  style={{ width: '100%' }}
-                />
+                  ].map((item, index) => (
+                    <option value={item} key={index}>
+                      {item}
+                    </option>
+                  ))}
+                </Field>
               </div>
               <div>
                 <FormLabel name='Hour' />
-                <FormSelect
-                  name='hour'
-                  as='select'
-                  data={['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']}
-                  style={{ width: '100%' }}
-                />
+                <Field as='select' name='hour' style={{ width: '100%' }}>
+                  {['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'].map(
+                    (item, index) => (
+                      <option key={index} value={item}>
+                        {item}
+                      </option>
+                    )
+                  )}
+                </Field>
               </div>
               <div>
                 <FormLabel name='From' />
@@ -82,8 +86,8 @@ const AddTimeTable = () => {
               </div>
               <div>
                 <FormLabel name='Department' />
-                <FormSelect
-                  data={[
+                <Field name='department' as='select' style={{ width: '100%' }}>
+                  {[
                     'Apparel Technology',
                     'Automobile Engneering',
                     'Computer Engneering',
@@ -95,19 +99,23 @@ const AddTimeTable = () => {
                     'Mechanical Engneering',
                     'Mechatronics Engneering',
                     'Textile Technology',
-                  ]}
-                  name='department'
-                  as='select'
-                  style={{ width: '100%' }}
-                />
+                  ].map((item, index) => (
+                    <option key={index} value={item}>
+                      {item}
+                    </option>
+                  ))}
+                </Field>
                 <div>
                   <FormLabel name='Semester' />
-                  <FormSelect
-                    data={['1', '2', '3', '4', '5', '6', '7', '8']}
-                    name='semester'
-                    as='select'
-                    style={{ width: '100%' }}
-                  />
+                  <Field name='semester' as='select' style={{ width: '100%' }}>
+                    {['1', '2', '3', '4', '5', '6', '7', '8'].map(
+                      (item, index) => (
+                        <option key={index} value={item}>
+                          {item}
+                        </option>
+                      )
+                    )}
+                  </Field>
                 </div>
               </div>
               <GreenButton
