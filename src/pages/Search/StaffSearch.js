@@ -12,6 +12,7 @@ import FormOptions from '../../components/FormOptions';
 
 const Staffsearch = () => {
   const { getData } = useFirestore();
+
   const [teachers, setTeachers] = useState([]);
   const [searchName, setSearchName] = useState('');
   const [searchResults, setSearchResults] = useState([]);
