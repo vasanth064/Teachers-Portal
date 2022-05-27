@@ -2,8 +2,9 @@ import userImage from './../assets/images/UserAccount.png';
 import logo from './../assets/images/logos/Logo.png';
 
 import { MdOutlineDashboard, MdManageSearch } from 'react-icons/md';
-import { FaSearch, FaUserAlt } from 'react-icons/fa';
-import { BsCalendarCheck, BsPencilSquare } from 'react-icons/bs';
+import { FaRegUser } from 'react-icons/fa';
+import { BsCalendarCheck, BsPencilSquare, BsSearch } from 'react-icons/bs';
+import { HiOutlineSpeakerphone } from 'react-icons/hi';
 
 import StaffSearch from '../pages/Search/StaffSearch';
 import StudentSearch from '../pages/Search/StudentSearch';
@@ -20,6 +21,8 @@ import SemesterMarkEntry from '../pages/Assesment/SemesterMarkEntry';
 
 import UpdateProfile from '../pages/Profile/UpdateProfile';
 import AddTimeTable from '../pages/Profile/AddTimeTable';
+import NotifyUsers from '../pages/Notifiy/NotifyUsers';
+import NotifyBatch from '../pages/Notifiy/NotifyBatch';
 
 const TeachersDashboardData = [
   {
@@ -38,7 +41,7 @@ const TeachersDashboardData = [
         },
         {
           navTitle: 'Search',
-          navIcon: <FaSearch />,
+          navIcon: <BsSearch />,
           subMenu: [
             {
               title: 'Students Search',
@@ -107,7 +110,7 @@ const TeachersDashboardData = [
         },
         {
           navTitle: 'Profile',
-          navIcon: <FaUserAlt />,
+          navIcon: <FaRegUser />,
           subMenu: [
             {
               title: 'Add Timetable',
@@ -118,6 +121,22 @@ const TeachersDashboardData = [
               title: 'Update Profile',
               URL: 'updateProfile',
               page: <UpdateProfile />,
+            },
+          ],
+        },
+        {
+          navTitle: 'Notify',
+          navIcon: <HiOutlineSpeakerphone />,
+          subMenu: [
+            {
+              title: 'Notify Students /Teachers',
+              URL: 'notifyUsers',
+              page: <NotifyUsers />,
+            },
+            {
+              title: 'Notify Batch',
+              URL: 'notifyBatch',
+              page: <NotifyBatch />,
             },
           ],
         },
