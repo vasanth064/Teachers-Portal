@@ -1,7 +1,7 @@
-import { Field } from 'formik';
 import React from 'react';
 import styled from 'styled-components';
 import frostImg from './../../assets/images/backgrounds/frost.png';
+import { useUI } from './../../Context/UiContext';
 const FormContainer = styled.div`
   position: relative;
   width: 100%;
@@ -27,7 +27,7 @@ const IconContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #99add3;
+  background-color: ${(props) => props.bg};
   overflow: hidden;
   p {
     padding: 0;
@@ -54,9 +54,10 @@ const SearchInput = styled.input`
 `;
 
 const SearchBar = ({ icon, ...props }) => {
+  const { getTheme } = useUI();
   return (
     <FormContainer>
-      <IconContainer>
+      <IconContainer bg={getTheme().liteBg}>
         <Frost />
         {icon || <p>Search</p>}
       </IconContainer>

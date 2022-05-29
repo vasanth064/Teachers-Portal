@@ -14,18 +14,12 @@ import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../Config/firebaseConfig';
 import { Link, Navigate } from 'react-router-dom';
 import Loader from '../components/Loader';
+import { useUI } from '../Context/UiContext';
 
 const TeachersDashboardMobile = ({ children }) => {
   const [mobileSidebar, setMobileSidebar] = useState(false);
-  const backgrounds = [
-    'royalBlue',
-    'olive',
-    'blueviolet',
-    'chocolate',
-    'crimson',
-    'orange',
-  ];
-  const [background, setBackground] = useState(0);
+  const { getTheme, setTheme } = useUI();
+
   const sideBarHandle = () => setMobileSidebar(!mobileSidebar);
 
   const { currentUser, logOut, setData, userData } = useAuth();
@@ -33,9 +27,6 @@ const TeachersDashboardMobile = ({ children }) => {
   useEffect(() => {
     if (!currentUser) return <Navigate to='/login' />;
     getUserData();
-    if (localStorage.bgID) {
-      setBackground(parseInt(localStorage.getItem('bgID')));
-    }
   }, [currentUser]);
   const getUserData = async () => {
     const userDataRef = collection(db, 'teachers');
@@ -44,26 +35,18 @@ const TeachersDashboardMobile = ({ children }) => {
     setData(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))[0]);
   };
 
-  const changeBG = () => {
-    setBackground(backgrounds.length - 1 <= background ? 0 : background + 1);
-    localStorage.removeItem('bgID');
-    localStorage.setItem(
-      'bgID',
-      backgrounds.length - 1 <= background ? 0 : background + 1
-    );
-  };
   return !userData ? (
     <Loader text='Getting Your Data ⌛️' />
   ) : (
     <div
       className='StudentsDashboardMobilePage'
-      style={{ background: backgrounds[background] }}>
+      style={{ background: getTheme().background }}>
       <div className='dashboardSidebarContainerMobile'>
         {TeachersDashboardData.map((item, index) => (
           <div
             className={
-              background
-                ? `dashboardSidebarMobile ${backgrounds[background]}`
+              getTheme().background
+                ? `dashboardSidebarMobile ${getTheme().background}`
                 : 'dashboardSidebarMobile'
             }
             key={index}
@@ -113,8 +96,8 @@ const TeachersDashboardMobile = ({ children }) => {
           <div style={{ display: 'flex', gap: '2rem' }}>
             <div
               className='userActionBtnMobile'
-              style={{ background: backgrounds[background], color: 'white' }}
-              onClick={changeBG}>
+              style={{ background: getTheme().background, color: 'white' }}
+              onClick={() => setTheme()}>
               <MdColorLens />
             </div>
             <div

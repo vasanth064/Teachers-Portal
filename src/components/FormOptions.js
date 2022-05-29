@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import frostImg from './../assets/images/backgrounds/frost.png';
-
+import { useUI } from './../Context/UiContext';
 const Option = styled.div`
   width: max-content;
   text-align: center;
@@ -16,7 +16,7 @@ const Option = styled.div`
   letter-spacing: 0.07em;
   text-transform: capitalize;
   border: 2px solid #c3c3c3;
-  background: ${(props) => (props.active ? '#99ADD3' : 'transparent')};
+  background: ${(props) => (props.active ? props.bg : 'transparent')};
   position: relative;
   z-index: 1;
   &::after {
@@ -39,15 +39,18 @@ const FormOptions = ({
   index,
   name,
   ...props
-}) =>
-  data.map((name, index) => (
+}) => {
+  const { getTheme } = useUI();
+  return data.map((name, index) => (
     <Option
       key={index}
       onClick={() => handleActiveFormOption(index)}
       {...props}
-      active={index === activeFormOption ? true : false}>
+      active={index === activeFormOption ? true : false}
+      bg={getTheme().liteBg}>
       {name}
     </Option>
   ));
+};
 
 export default FormOptions;

@@ -8,6 +8,7 @@ import PageContent from '../../components/PageContent';
 import PageHeader from '../../components/PageHeader';
 import { useAuth } from '../../Context/AuthContext';
 import { useFirestore } from '../../Context/FirestoreContext';
+import { useUI } from '../../Context/UiContext';
 
 const weekDays = [
   'Monday',
@@ -29,7 +30,7 @@ const AddTimeTable = () => {
   const [thursaday, setThursday] = useState([]);
   const [friday, setFriday] = useState([]);
   const [saturday, setSaturday] = useState([]);
-
+  const { getTheme } = useUI();
   return (
     <div>
       <PageHeader text='Add Time Table' />
@@ -162,13 +163,15 @@ const AddTimeTable = () => {
               saturday.length !== 0) && (
               <thead>
                 <tr>
-                  <th>Week Day</th>
-                  <th>Period</th>
-                  <th>From</th>
-                  <th>To</th>
-                  <th>Course Code</th>
-                  <th>Course Title</th>
-                  <th>Action</th>
+                  <th style={{ background: getTheme().liteBg }}>Week Day</th>
+                  <th style={{ background: getTheme().liteBg }}>Period</th>
+                  <th style={{ background: getTheme().liteBg }}>From</th>
+                  <th style={{ background: getTheme().liteBg }}>To</th>
+                  <th style={{ background: getTheme().liteBg }}>Course Code</th>
+                  <th style={{ background: getTheme().liteBg }}>
+                    Course Title
+                  </th>
+                  <th style={{ background: getTheme().liteBg }}>Action</th>
                 </tr>
               </thead>
             )}

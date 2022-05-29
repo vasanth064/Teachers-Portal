@@ -1,25 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useUI } from '../Context/UiContext';
 import './css/GreenButton.css';
 const GreenButton = ({ children, marginCenter, ...props }) => {
-  const backgrounds = [
-    'royalBlue',
-    'olive',
-    'blueviolet',
-    'chocolate',
-    'crimson',
-    'orange',
-  ];
-  const [background, setBackground] = useState(
-    parseInt(localStorage.getItem('bgID'))
-  );
-
+  const { getTheme } = useUI();
   return (
     <button
       type='submit'
       {...props}
-      className={
-        background ? `greenButton ${backgrounds[background]}` : 'greenButton'
-      }>
+      className='greenButton'
+      style={{ background: getTheme().liteBg }}>
       {children}
     </button>
   );
