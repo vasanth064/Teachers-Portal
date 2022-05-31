@@ -4,12 +4,15 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App.js';
 import AuthenticationProvider from './Context/AuthContext.js';
 import FirestoreProvider from './Context/FirestoreContext.js';
+import UiProvider from './Context/UiContext.js';
 
 ReactDOM.render(
   <BrowserRouter>
     <AuthenticationProvider>
       <FirestoreProvider>
-        <App />
+        <UiProvider>
+          <App />
+        </UiProvider>
       </FirestoreProvider>
     </AuthenticationProvider>
   </BrowserRouter>,

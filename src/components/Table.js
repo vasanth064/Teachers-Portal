@@ -1,18 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useUI } from './../Context/UiContext';
 import './css/Table.css';
 
 const Table = ({ data }) => {
-  const backgrounds = [
-    'royalBlue',
-    'olive',
-    'blueviolet',
-    'chocolate',
-    'crimson',
-    'orange',
-  ];
-  const [background, setBackground] = useState(
-    parseInt(localStorage.getItem('bgID'))
-  );
+  const { getTheme } = useUI();
 
   return (
     <div className='tableWrapper'>
@@ -25,11 +16,7 @@ const Table = ({ data }) => {
                   <thead>
                     <tr>
                       {item.titles.map((title, index) => (
-                        <th
-                          key={index}
-                          className={
-                            background ? `${backgrounds[background]}` : null
-                          }>
+                        <th key={index} className={`.${getTheme().liteBg}`}>
                           {title}
                         </th>
                       ))}

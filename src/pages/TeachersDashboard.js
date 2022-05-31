@@ -15,42 +15,25 @@ import { useAuth } from '../Context/AuthContext';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../Config/firebaseConfig';
 import Loader from '../components/Loader';
+import { useUI } from '../Context/UiContext';
 
 const TeachersDashboard = ({ children }) => {
   const [sideBar, setSideBar] = useState(false);
-  const backgrounds = [
-    'royalBlue',
-    'olive',
-    'blueviolet',
-    'chocolate',
-    'crimson',
-    'orange',
-  ];
-  const [background, setBackground] = useState(0);
+  const { getTheme, setTheme } = useUI();
+
   const sideBarHandle = () => setSideBar(!sideBar);
   const { currentUser, logOut, setData, userData } = useAuth();
 
   useEffect(() => {
     if (!currentUser) return <Navigate to='/login' />;
     getUserData();
-    if (localStorage.bgID) {
-      setBackground(parseInt(localStorage.getItem('bgID')));
-    }
   }, [currentUser]);
+
   const getUserData = async () => {
     const userDataRef = collection(db, 'teachers');
     const q = query(userDataRef, where('email', '==', currentUser.email));
     const snapshot = await getDocs(q);
     setData(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))[0]);
-  };
-
-  const changeBG = () => {
-    setBackground(backgrounds.length - 1 <= background ? 0 : background + 1);
-    localStorage.removeItem('bgID');
-    localStorage.setItem(
-      'bgID',
-      backgrounds.length - 1 <= background ? 0 : background + 1
-    );
   };
 
   return !userData ? (
@@ -60,7 +43,7 @@ const TeachersDashboard = ({ children }) => {
       <MediaQuery minWidth={900}>
         <div
           className='StudentsDashboardPage'
-          style={{ background: backgrounds[background] }}>
+          style={{ background: getTheme().background }}>
           {TeachersDashboardData.map((item, index) =>
             sideBar ? (
               <div
@@ -155,10 +138,10 @@ const TeachersDashboard = ({ children }) => {
                   <div
                     className='userActionBtn'
                     style={{
-                      background: backgrounds[background],
+                      background: getTheme().background,
                       color: 'white',
                     }}
-                    onClick={changeBG}>
+                    onClick={() => setTheme()}>
                     <MdColorLens />
                   </div>
                   {/* <div className='userActionBtn notification'>

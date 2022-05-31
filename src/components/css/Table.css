@@ -13,6 +13,7 @@ table {
   position: relative;
   z-index: 2;
   border-style: hidden;
+  overflow: hidden;
 }
 table::after {
   content: '';
@@ -74,4 +75,8 @@ th:last-child {
 }
 tr:nth-child(even) {
   background-color: white;
+}
+tr:last-child {
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
 }

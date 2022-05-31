@@ -29,7 +29,6 @@
   border-radius: 0rem 1rem 1rem 0rem;
 }
 .btnActive {
-  background: black;
   color: white;
 }
 @media only screen and (max-width: 500px) {

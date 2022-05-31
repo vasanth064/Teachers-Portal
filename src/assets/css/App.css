@@ -79,3 +79,21 @@ select {
   text-transform: capitalize;
   border: 2px solid #c3c3c3;
 }
+.royalBlue {
+  background: #99add3;
+}
+.olive {
+  background: #adad68;
+}
+.blueviolet {
+  background: #a777d3;
+}
+.chocolate {
+  background: #cc9772;
+}
+.crimson {
+  background: #d4778a;
+}
+.orange {
+  background: #e2b86b;
+}

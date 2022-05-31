@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { FaPhoneAlt } from 'react-icons/fa';
 import { IoIosMail } from 'react-icons/io';
 import { Link } from 'react-router-dom';
+import { useUI } from '../Context/UiContext';
 
 const Container = styled(Link)`
   border: none;
@@ -88,10 +89,9 @@ const Email = styled.a`
   display: block;
   width: 50%;
   color: white;
-  background-color: black;
   padding: 1.6rem 7rem;
   border-right: 1px solid white;
-  background: #99add3;
+  background: ${(props) => props.bg};
   border-radius: 0px 0px 0px 20px;
 `;
 const Phone = styled.a`
@@ -99,9 +99,8 @@ const Phone = styled.a`
   color: white;
   display: block;
   width: 50%;
-  background-color: black;
   padding: 1.6rem 7rem;
-  background: #99add3;
+  background: ${(props) => props.bg};
 `;
 
 const SearchCard = ({
@@ -113,6 +112,7 @@ const SearchCard = ({
   phoneNumber,
   email,
 }) => {
+  const { getTheme } = useUI();
   return (
     <Container to={`${rollno}`}>
       <ProfileImage alt={name} src={image} loading='lazy' />
@@ -123,10 +123,10 @@ const SearchCard = ({
       <Department>{department}</Department>
       <Designation>{rollno}</Designation>
       <Footer>
-        <Email href={`mailto:${email}`}>
+        <Email href={`mailto:${email}`} bg={getTheme().liteBg}>
           <IoIosMail size='3rem' />
         </Email>
-        <Phone href={`tel:${phoneNumber}`}>
+        <Phone href={`tel:${phoneNumber}`} bg={getTheme().liteBg}>
           <FaPhoneAlt size='2.5rem' />
         </Phone>
       </Footer>
