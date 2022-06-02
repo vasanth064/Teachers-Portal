@@ -8,6 +8,7 @@ import {
   MdOutlineLogout,
   MdColorLens,
   MdOutlineFingerprint,
+  MdOutlineNotificationsActive,
 } from 'react-icons/md';
 import { useAuth } from '../Context/AuthContext';
 import { collection, getDocs, query, where } from 'firebase/firestore';
@@ -15,10 +16,16 @@ import { db } from '../Config/firebaseConfig';
 import { Link, Navigate } from 'react-router-dom';
 import Loader from '../components/Loader';
 import { useUI } from '../Context/UiContext';
+import NotifyItem from '../components/NotifyItem';
+import { useFirestore } from '../Context/FirestoreContext';
 
 const TeachersDashboardMobile = ({ children }) => {
   const [mobileSidebar, setMobileSidebar] = useState(false);
   const { getTheme, setTheme } = useUI();
+  const { getData } = useFirestore();
+
+  const [notifications, setNotifications] = useState([]);
+  const [notificationBar, setNotificationBar] = useState(false);
 
   const sideBarHandle = () => setMobileSidebar(!mobileSidebar);
 
@@ -28,11 +35,20 @@ const TeachersDashboardMobile = ({ children }) => {
     if (!currentUser) return <Navigate to='/login' />;
     getUserData();
   }, [currentUser]);
+
   const getUserData = async () => {
     const userDataRef = collection(db, 'teachers');
     const q = query(userDataRef, where('email', '==', currentUser.email));
     const snapshot = await getDocs(q);
     setData(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))[0]);
+  };
+
+  const getNotifications = async () => {
+    setNotificationBar(!notificationBar);
+    const data = await getData('notification', [
+      where('userID', '==', userData.staffID),
+    ]);
+    setNotifications(data);
   };
 
   return !userData ? (
@@ -94,6 +110,43 @@ const TeachersDashboardMobile = ({ children }) => {
             onClick={sideBarHandle}
           />
           <div style={{ display: 'flex', gap: '2rem' }}>
+            <div
+              className='userActionBtn notification'
+              onClick={() => getNotifications()}>
+              <MdOutlineNotificationsActive />
+              <div
+                className='notifyContainer'
+                style={
+                  notificationBar
+                    ? {
+                        display: 'block',
+                        marginTop: '20px',
+                        marginRight: '20px',
+                      }
+                    : { display: 'none' }
+                }>
+                {notifications.length !== 0 ? (
+                  notifications.map((item, index) => (
+                    <NotifyItem
+                      key={index}
+                      content={item.message}
+                      id={item.uid}
+                      doc={item.file}
+                    />
+                  ))
+                ) : (
+                  <p
+                    className='notifyItemContent'
+                    style={{
+                      textAlign: 'center',
+                      fontSize: '1.8rem',
+                      padding: '1rem',
+                    }}>
+                    No Notifications
+                  </p>
+                )}
+              </div>
+            </div>
             <div
               className='userActionBtnMobile'
               style={{ background: getTheme().background, color: 'white' }}
