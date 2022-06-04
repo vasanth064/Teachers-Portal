@@ -1,5 +1,4 @@
 .greenButton {
-  border-radius: 10px;
   border: none;
   font-style: normal;
   font-weight: 600;
@@ -36,4 +35,13 @@
 .greenButton[disabled] {
   background-color: gray;
   border: 2.5px dashed black;
+}
+.iconButton {
+  border-radius: 15px;
+  border: none;
+  padding: 1rem 2rem;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
 }
