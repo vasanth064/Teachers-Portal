@@ -7,8 +7,7 @@ const GreenButton = ({ children, marginCenter, ...props }) => {
     <button
       type='submit'
       {...props}
-      className='greenButton'
-      style={{ background: getTheme().liteBg }}>
+      className={`greenButton ${getTheme().background}`}>
       {children}
     </button>
   );
