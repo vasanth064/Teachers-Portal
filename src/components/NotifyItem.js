@@ -28,7 +28,7 @@ const NotifyItem = ({ content, id, doc }) => {
           className='notifyDeleteContainer'
           onClick={() => deleteData('notification', id)}>
           <RiDeleteBin5Fill
-            size={20}
+            size={25}
             color='black'
             className='notifyItemDelete'
           />

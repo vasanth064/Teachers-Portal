@@ -25,9 +25,9 @@ const TeachersDashboard = ({ children }) => {
   const { getTheme, setTheme } = useUI();
   const [notifications, setNotifications] = useState([]);
   const [notificationBar, setNotificationBar] = useState(false);
+  const { getData } = useFirestore();
   const sideBarHandle = () => setSideBar(!sideBar);
   const { currentUser, logOut, setData, userData } = useAuth();
-  const { getData } = useFirestore();
 
   useEffect(() => {
     if (!currentUser) return <Navigate to='/login' />;
