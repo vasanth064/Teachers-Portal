@@ -7,6 +7,7 @@ import {
   MdOutlineFingerprint,
   MdOutlineLogout,
   MdColorLens,
+  MdOutlineNotificationsActive,
 } from 'react-icons/md';
 import NavItem from '../components/DashboardNavItem';
 import { Link, Navigate, NavLink } from 'react-router-dom';
@@ -16,11 +17,15 @@ import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../Config/firebaseConfig';
 import Loader from '../components/Loader';
 import { useUI } from '../Context/UiContext';
+import NotifyItem from '../components/NotifyItem';
+import { useFirestore } from '../Context/FirestoreContext';
 
 const TeachersDashboard = ({ children }) => {
   const [sideBar, setSideBar] = useState(false);
   const { getTheme, setTheme } = useUI();
-
+  const [notifications, setNotifications] = useState([]);
+  const [notificationBar, setNotificationBar] = useState(false);
+  const { getData } = useFirestore();
   const sideBarHandle = () => setSideBar(!sideBar);
   const { currentUser, logOut, setData, userData } = useAuth();
 
@@ -34,6 +39,14 @@ const TeachersDashboard = ({ children }) => {
     const q = query(userDataRef, where('email', '==', currentUser.email));
     const snapshot = await getDocs(q);
     setData(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))[0]);
+  };
+
+  const getNotifications = async () => {
+    setNotificationBar(!notificationBar);
+    const data = await getData('notification', [
+      where('userID', '==', userData.staffID),
+    ]);
+    setNotifications(data);
   };
 
   return !userData ? (
@@ -136,6 +149,39 @@ const TeachersDashboard = ({ children }) => {
                 </Link>
                 <div className='dashboardHeaderRight'>
                   <div
+                    className='userActionBtn notification'
+                    onClick={() => getNotifications()}>
+                    <MdOutlineNotificationsActive />
+                    <div
+                      className='notifyContainer'
+                      style={
+                        notificationBar
+                          ? { display: 'block' }
+                          : { display: 'none' }
+                      }>
+                      {notifications.length !== 0 ? (
+                        notifications.map((item, index) => (
+                          <NotifyItem
+                            key={index}
+                            content={item.message}
+                            id={item.uid}
+                            doc={item.file}
+                          />
+                        ))
+                      ) : (
+                        <p
+                          className='notifyItemContent'
+                          style={{
+                            textAlign: 'center',
+                            fontSize: '1.8rem',
+                            padding: '1rem',
+                          }}>
+                          No Notifications
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                  <div
                     className='userActionBtn'
                     style={{
                       background: getTheme().background,
@@ -144,9 +190,6 @@ const TeachersDashboard = ({ children }) => {
                     onClick={() => setTheme()}>
                     <MdColorLens />
                   </div>
-                  {/* <div className='userActionBtn notification'>
-                    <MdOutlineNotificationsActive />
-                  </div> */}
                   <Link to='/ChangePassword'>
                     <div className='userActionBtn password'>
                       <MdOutlineFingerprint />

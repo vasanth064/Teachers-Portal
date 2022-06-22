@@ -1,5 +1,4 @@
 import React from 'react';
-import Student from '../assets/images/StudentImage/Student1.jpg';
 import styled from 'styled-components';
 
 const StudentContainer = styled.div`
@@ -59,7 +58,7 @@ const AttendanceStatusShell = ({ data }) => {
   return (
     <div>
       {data.map((item, index) => (
-        <StudentContainer>
+        <StudentContainer key={index}>
           <ContentBody>
             <StudentImage src={data.Image} alt='StudentImage' />
             <StudentName>{data.name}</StudentName>

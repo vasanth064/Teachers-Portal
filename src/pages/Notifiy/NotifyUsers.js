@@ -6,8 +6,11 @@ import GreenButton from '../../components/GreenButton';
 import InputField from '../../components/InputField';
 import PageContent from '../../components/PageContent';
 import PageHeader from '../../components/PageHeader';
+import { useFirestore } from '../../Context/FirestoreContext';
 
 const NotifyUsers = () => {
+  const { addData, getFileURL } = useFirestore();
+  const tableName = 'notification';
   return (
     <div>
       <PageHeader text='Notify Sudent /Teacher' />
@@ -17,18 +20,23 @@ const NotifyUsers = () => {
             initialValues={{
               userID: '',
               message: '',
-              file: '',
+              file: null,
             }}
-            onSubmit={(values) => {
-              console.log(values);
+            onSubmit={async (values) => {
+              if (values.file) {
+                const URL = await getFileURL(values.file, tableName);
+                values.file = URL;
+              }
+              alert(`Notification Sent to ${values.userID}`);
+              await addData(tableName, values);
             }}>
             {({ isSubmitting, setFieldValue }) => (
               <Form>
                 <FormLabel name='RollNo /Staff ID'>
-                  <InputField type='text' name='userID' />
+                  <InputField type='text' name='userID' required />
                 </FormLabel>
                 <FormLabel name='Message'>
-                  <InputField type='text' name='message' />
+                  <InputField type='text' name='message' required />
                 </FormLabel>
                 <div>
                   <FormLabel name='Document'>
@@ -36,7 +44,7 @@ const NotifyUsers = () => {
                       type='file'
                       name='file'
                       onChange={(e) => {
-                        setFieldValue('photo', e.currentTarget.files[0]);
+                        setFieldValue('file', e.currentTarget.files[0]);
                       }}
                       style={{
                         position: 'relative',
