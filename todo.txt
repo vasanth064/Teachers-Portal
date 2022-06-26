@@ -14,8 +14,3 @@ By order
 -- send bacth notification (circulars)
 -- send student notification 
 
-what is GSM?, 
-name the GSM Module used in the experiment? (sim 900A), 
-How does the GSM Module interact with the microcontoller? (UART), 
-what is the differnce betwenn gsm and gprs?, 
-what are AT commands?,

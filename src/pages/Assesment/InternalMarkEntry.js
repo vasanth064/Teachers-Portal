@@ -12,54 +12,137 @@ import PageHeader from '../../components/PageHeader';
 import { useFirestore } from '../../Context/FirestoreContext';
 import { useUI } from '../../Context/UiContext';
 import { RiDeleteBin5Fill } from 'react-icons/ri';
-import { FaEdit } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const InternalMarkEntry = () => {
-  const { getData } = useFirestore();
+  const { getData, addData, updateData } = useFirestore();
   const { getTheme } = useUI();
+
+  const [update, setUpdate] = useState(false);
+  const [updateUID, setUpdateUID] = useState(null);
+
   const [studentsMarkList, setStudentsMarkList] = useState([]);
   const [semester, setSemester] = useState('');
   const [department, setDepartment] = useState('');
   const [batch, setBatch] = useState('');
+  const [testType, setTestType] = useState('');
   const [courseCode, setCourseCode] = useState('');
   const [students, setStudents] = useState([]);
+
+  const [studentList, setStudentList] = useState([]);
 
   const handleCourseCode = (value) => setCourseCode(value);
   const handleSemesterSelect = (value) => setSemester(value);
   const handleDepartmentSelect = (value) => setDepartment(value);
   const handleBatchSelect = (value) => setBatch(value);
+  const handleTestTypeSelect = (value) => setTestType(value);
+
+  const navigate = useNavigate();
 
   const getStudents = async () => {
     const ref = await getData('students', [
       where('batch', '==', batch),
       where('department', '==', department),
     ]);
+
     ref.map((item) =>
       setStudents((prevData) => [
         ...prevData,
         { name: item.name, rollno: item.rollno },
       ])
     );
+
+    ref.map((item) =>
+      setStudentList((prevData) => [
+        ...prevData,
+        { name: item.name, rollno: item.rollno },
+      ])
+    );
   };
-  useEffect(() => getStudents(), [semester, department]);
+
+  const getMarkList = async () => {
+    const ref = await getData('testResults', [
+      where('batch', '==', batch),
+      where('department', '==', department),
+      where('testType', '==', testType),
+      where('courseCode', '==', courseCode),
+      where('semester', '==', semester),
+    ]);
+    if (ref[0]) {
+      setUpdate(true);
+      setUpdateUID(ref[0].uid);
+      setStudentList(
+        students.filter(
+          (student) =>
+            !ref[0].scores.some((score) => student.rollno === score.rollno)
+        )
+      );
+    } else {
+      setUpdate(false);
+      setUpdateUID(null);
+    }
+    setStudentsMarkList(ref[0]?.scores || []);
+  };
+
+  useEffect(
+    () => getMarkList(),
+    [batch, department, testType, courseCode, semester]
+  );
+
+  useEffect(() => getStudents(), [batch, department]);
+  const deleteItem = (index, rollno) => {
+    setStudentsMarkList(studentsMarkList.filter((i, sno) => sno !== index));
+    setStudentList((prevData) => [
+      ...prevData,
+      students.filter((item) => item.rollno === rollno)[0],
+    ]);
+  };
+
+  const submitMarks = async () => {
+    const header = {
+      batch,
+      department,
+      courseCode,
+      semester,
+      testType,
+    };
+    const data = {
+      ...header,
+      scores: studentsMarkList,
+    };
+    const check = window.confirm('Are you sure to publish the marks ?');
+    if (check) {
+      await addData('testResults', data);
+      navigate('/');
+    }
+  };
+
+  const updateMarks = async () => {
+    const header = {
+      batch,
+      department,
+      courseCode,
+      semester,
+      testType,
+    };
+    const data = {
+      ...header,
+      scores: studentsMarkList,
+    };
+    const check = window.confirm('Are you sure to update the marks ?');
+    if (check) {
+      await updateData('testResults', updateUID, data);
+      navigate('/');
+    }
+  };
 
   return (
     <div>
       <PageHeader text='Internal Marks Entry' />
       <PageContent>
         <GlassSheet>
-          <Formik
-            onSubmit={async (values) => {
-              const data = {
-                semester,
-                department,
-                batch,
-                ...values,
-              };
-              await document.querySelector('#markEntry').reset();
-              console.log(data);
-            }}>
-            <Form id='markEntry'>
+          <Formik>
+            <Form>
               <div style={{ display: 'flex', gap: '2rem' }}>
                 <FormLabel name='Batch'>
                   <FormSelect
@@ -101,15 +184,15 @@ const InternalMarkEntry = () => {
                 <FormLabel name='Semester'>
                   <FormSelect
                     handleFormSelect={handleSemesterSelect}
-                    data={['1', '2', '3', '4', '5', '6', '7', '8']}
+                    data={['select', '1', '2', '3', '4', '5', '6', '7', '8']}
                     style={{ width: '100%' }}
                   />
                 </FormLabel>
-
                 <FormLabel name='Test Type'>
                   <FormSelect
-                    handleFormSelect={handleBatchSelect}
+                    handleFormSelect={handleTestTypeSelect}
                     data={[
+                      'select',
                       'Countinous Assessment 1',
                       'Countinous Assessment 2',
                       'Countinous Assessment 3',
@@ -123,7 +206,7 @@ const InternalMarkEntry = () => {
         </GlassSheet>
       </PageContent>
       <PageContent>
-        {students.length !== 0 ? (
+        {courseCode && semester && testType && students.length !== 0 ? (
           <GlassSheet>
             <Formik
               initialValues={{
@@ -131,19 +214,20 @@ const InternalMarkEntry = () => {
                 markSecured: '',
               }}
               onSubmit={(values) => {
-                setStudents(
-                  students.filter((item) =>
+                setStudentList(
+                  studentList.filter((item) =>
                     item.rollno !== values.rollno ? item : null
                   )
                 );
                 setStudentsMarkList((prevItems) => [...prevItems, values]);
+                document.querySelector('#markEntry').reset();
               }}>
-              <Form>
+              <Form id='markEntry'>
                 <div>
                   <FormLabel name='Roll No' />
                   <Field as='select' name='rollno' style={{ width: '100%' }}>
                     <option>Select</option>
-                    {students.map((item, index) => (
+                    {studentList.map((item, index) => (
                       <option key={index} value={item.rollno}>
                         {item.name} - {item.rollno}
                       </option>
@@ -187,7 +271,10 @@ const InternalMarkEntry = () => {
                     <td>{item.markSecured}</td>
                     <td>
                       <IconButton>
-                        <FaEdit size={22} />
+                        <RiDeleteBin5Fill
+                          size={22}
+                          onClick={() => deleteItem(index, item.rollno)}
+                        />
                       </IconButton>
                     </td>
                   </tr>
@@ -196,6 +283,15 @@ const InternalMarkEntry = () => {
             </table>
           ) : null}
         </PageContent>
+        {update ? (
+          students.length == studentsMarkList.length &&
+          studentsMarkList.length !== 0 ? (
+            <GreenButton onClick={() => updateMarks()}>Update</GreenButton>
+          ) : null
+        ) : students.length == studentsMarkList.length &&
+          studentsMarkList.length !== 0 ? (
+          <GreenButton onClick={() => submitMarks()}>Submit</GreenButton>
+        ) : null}
       </PageContent>
     </div>
   );

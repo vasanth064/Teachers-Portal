@@ -11,6 +11,7 @@ import StaffInformation from './pages/Profile/StaffInformation';
 import { useAuth } from './Context/AuthContext';
 import StudentInformation from './components/StudentInformation';
 import StaffSearchProfile from './components/StaffSearchProfile';
+
 const App = () => {
   const { userData, currentUser } = useAuth();
   console.log(userData);
