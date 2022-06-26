@@ -206,7 +206,11 @@ const InternalMarkEntry = () => {
         </GlassSheet>
       </PageContent>
       <PageContent>
-        {courseCode && semester && testType && students.length !== 0 ? (
+        {courseCode &&
+        semester &&
+        testType &&
+        students.length !== 0 &&
+        students.length !== studentsMarkList.length ? (
           <GlassSheet>
             <Formik
               initialValues={{

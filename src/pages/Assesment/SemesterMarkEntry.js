@@ -195,7 +195,11 @@ const SemesterMarkEntry = () => {
         </GlassSheet>
       </PageContent>
       <PageContent>
-        {courseCode && semester && examType && students.length !== 0 ? (
+        {courseCode &&
+        semester &&
+        examType &&
+        students.length !== 0 &&
+        students.length !== studentsMarkList.length ? (
           <GlassSheet>
             <Formik
               initialValues={{
