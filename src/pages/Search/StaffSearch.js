@@ -75,7 +75,7 @@ const Staffsearch = () => {
           {searchResults.length === 0
             ? teachers.map((item, index) => (
                 <SearchCard
-                  key={index}
+                  key={item.rollno}
                   rollno={item.staffID}
                   image={item.photo}
                   name={item.name}
@@ -88,7 +88,7 @@ const Staffsearch = () => {
               ))
             : searchResults.map((item, index) => (
                 <SearchCard
-                  key={index}
+                  key={item.rollno}
                   rollno={item.staffID}
                   image={item.photo}
                   name={item.name}
