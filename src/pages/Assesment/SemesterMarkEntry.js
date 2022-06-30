@@ -20,18 +20,18 @@ const SemesterMarkEntry = () => {
   const [update, setUpdate] = useState(false);
   const [updateUID, setUpdateUID] = useState(null);
   const [studentsMarkList, setStudentsMarkList] = useState([]);
-  const [semester, setSemester] = useState('');
-  const [department, setDepartment] = useState('');
-  const [batch, setBatch] = useState('');
-  const [examType, setExamType] = useState('');
-  const [courseCode, setCourseCode] = useState('');
+  const [subType, setSubType] = useState('');
   const [students, setStudents] = useState([]);
   const [studentList, setStudentList] = useState([]);
+  const [department, setDepartment] = useState('');
+  const [batch, setBatch] = useState('');
+  const [semester, setSemester] = useState('');
+  const [courseCode, setCourseCode] = useState('');
   const handleCourseCode = (value) => setCourseCode(value);
   const handleSemesterSelect = (value) => setSemester(value);
   const handleDepartmentSelect = (value) => setDepartment(value);
   const handleBatchSelect = (value) => setBatch(value);
-  const handleExamTypeSelect = (value) => setExamType(value);
+  const handleSubTypeSelect = (value) => setSubType(value);
   const navigate = useNavigate();
 
   const getStudents = async () => {
@@ -57,7 +57,7 @@ const SemesterMarkEntry = () => {
     const ref = await getData('examResults', [
       where('batch', '==', batch),
       where('department', '==', department),
-      where('examType', '==', examType),
+      where('subType', '==', subType),
       where('courseCode', '==', courseCode),
       where('semester', '==', semester),
     ]);
@@ -78,8 +78,9 @@ const SemesterMarkEntry = () => {
   };
 
   useEffect(
-    () => getMarkList(),
-    [batch, department, examType, courseCode, semester]
+    () =>
+      batch && department && subType && courseCode && semester && getMarkList(),
+    [batch, department, subType, courseCode, semester]
   );
 
   useEffect(() => getStudents(), [batch, department]);
@@ -98,7 +99,7 @@ const SemesterMarkEntry = () => {
       department,
       courseCode,
       semester,
-      examType,
+      subType,
     };
     const data = {
       ...header,
@@ -117,7 +118,7 @@ const SemesterMarkEntry = () => {
       department,
       courseCode,
       semester,
-      examType,
+      subType,
     };
     const data = {
       ...header,
@@ -184,7 +185,7 @@ const SemesterMarkEntry = () => {
                 </FormLabel>
                 <FormLabel name='Exam Type'>
                   <FormSelect
-                    handleFormSelect={handleExamTypeSelect}
+                    handleFormSelect={handleSubTypeSelect}
                     data={['select', 'Theory', 'Practicals']}
                     style={{ width: '100%' }}
                   />
@@ -197,7 +198,7 @@ const SemesterMarkEntry = () => {
       <PageContent>
         {courseCode &&
         semester &&
-        examType &&
+        subType &&
         students.length !== 0 &&
         students.length !== studentsMarkList.length ? (
           <GlassSheet>
@@ -277,11 +278,11 @@ const SemesterMarkEntry = () => {
           ) : null}
         </PageContent>
         {update ? (
-          students.length == studentsMarkList.length &&
+          students.length === studentsMarkList.length &&
           studentsMarkList.length !== 0 ? (
             <GreenButton onClick={() => updateMarks()}>Update</GreenButton>
           ) : null
-        ) : students.length == studentsMarkList.length &&
+        ) : students.length === studentsMarkList.length &&
           studentsMarkList.length !== 0 ? (
           <GreenButton onClick={() => submitMarks()}>Submit</GreenButton>
         ) : null}

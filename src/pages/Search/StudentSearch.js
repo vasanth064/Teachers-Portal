@@ -21,7 +21,7 @@ const StudentSearch = () => {
 
   useEffect(() => {
     if (batch) {
-      const newResults = students.filter((student) => student.batch == batch);
+      const newResults = students.filter((student) => student.batch === batch);
       setSearchResults(newResults);
     }
   }, [batch]);

@@ -50,7 +50,7 @@ td {
 }
 td,
 th {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   border-bottom-width: 0px;
   border-top-width: 0px;
   padding: 1.75rem 1rem;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Field, Form, Formik } from 'formik';
 import FormLabel from '../../components/FormLabel';
 import GlassSheet from '../../components/GlassSheet';
@@ -94,6 +94,9 @@ const AddTimeTable = () => {
                       { period: parseInt(values.hour), ...values },
                     ])
                   );
+                  break;
+                default:
+                  return null;
               }
               document.querySelector('#addSubjects').reset();
             }}>

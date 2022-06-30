@@ -25,7 +25,7 @@ const InternalMarkEntry = () => {
   const [semester, setSemester] = useState('');
   const [department, setDepartment] = useState('');
   const [batch, setBatch] = useState('');
-  const [testType, setTestType] = useState('');
+  const [subType, setSubType] = useState('');
   const [courseCode, setCourseCode] = useState('');
   const [students, setStudents] = useState([]);
 
@@ -35,7 +35,7 @@ const InternalMarkEntry = () => {
   const handleSemesterSelect = (value) => setSemester(value);
   const handleDepartmentSelect = (value) => setDepartment(value);
   const handleBatchSelect = (value) => setBatch(value);
-  const handleTestTypeSelect = (value) => setTestType(value);
+  const handleSubTypeSelect = (value) => setSubType(value);
 
   const navigate = useNavigate();
 
@@ -64,7 +64,7 @@ const InternalMarkEntry = () => {
     const ref = await getData('testResults', [
       where('batch', '==', batch),
       where('department', '==', department),
-      where('testType', '==', testType),
+      where('subType', '==', subType),
       where('courseCode', '==', courseCode),
       where('semester', '==', semester),
     ]);
@@ -85,11 +85,13 @@ const InternalMarkEntry = () => {
   };
 
   useEffect(
-    () => getMarkList(),
-    [batch, department, testType, courseCode, semester]
+    () =>
+      batch && department && subType && courseCode && semester && getMarkList(),
+    [batch, department, subType, courseCode, semester]
   );
 
   useEffect(() => getStudents(), [batch, department]);
+
   const deleteItem = (index, rollno) => {
     setStudentsMarkList(studentsMarkList.filter((i, sno) => sno !== index));
     setStudentList((prevData) => [
@@ -104,7 +106,7 @@ const InternalMarkEntry = () => {
       department,
       courseCode,
       semester,
-      testType,
+      subType,
     };
     const data = {
       ...header,
@@ -123,7 +125,7 @@ const InternalMarkEntry = () => {
       department,
       courseCode,
       semester,
-      testType,
+      subType,
     };
     const data = {
       ...header,
@@ -190,7 +192,7 @@ const InternalMarkEntry = () => {
                 </FormLabel>
                 <FormLabel name='Test Type'>
                   <FormSelect
-                    handleFormSelect={handleTestTypeSelect}
+                    handleFormSelect={handleSubTypeSelect}
                     data={[
                       'select',
                       'Countinous Assessment 1',
@@ -208,7 +210,7 @@ const InternalMarkEntry = () => {
       <PageContent>
         {courseCode &&
         semester &&
-        testType &&
+        subType &&
         students.length !== 0 &&
         students.length !== studentsMarkList.length ? (
           <GlassSheet>
@@ -288,11 +290,11 @@ const InternalMarkEntry = () => {
           ) : null}
         </PageContent>
         {update ? (
-          students.length == studentsMarkList.length &&
+          students.length === studentsMarkList.length &&
           studentsMarkList.length !== 0 ? (
             <GreenButton onClick={() => updateMarks()}>Update</GreenButton>
           ) : null
-        ) : students.length == studentsMarkList.length &&
+        ) : students.length === studentsMarkList.length &&
           studentsMarkList.length !== 0 ? (
           <GreenButton onClick={() => submitMarks()}>Submit</GreenButton>
         ) : null}

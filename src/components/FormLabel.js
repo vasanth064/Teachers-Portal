@@ -17,10 +17,10 @@ const Label = styled.label`
   line-height: 2.6rem;
   letter-spacing: 0.07em;
 `;
-const FormLabel = ({ children, name }) => {
+const FormLabel = ({ children, name, ...props }) => {
   return (
     <Container>
-      <Label>{name} : </Label>
+      <Label {...props}> {name && `${name} : `} </Label>
       {children}
     </Container>
   );

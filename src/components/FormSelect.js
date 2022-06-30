@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Container = styled.select`
+export const Container = styled.select`
   position: relative;
   z-index: 1;
   padding: 1.4rem;
@@ -16,7 +16,7 @@ const Container = styled.select`
   border: 2px solid #c3c3c3;
 `;
 
-const Options = styled.option`
+export const Options = styled.option`
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 400;
