@@ -27,6 +27,8 @@ const NotifyUsers = () => {
                 const URL = await getFileURL(values.file, tableName);
                 values.file = URL;
               }
+              values.userID = values.userID.toUpperCase();
+
               alert(`Notification Sent to ${values.userID}`);
               await addData(tableName, values);
             }}>
