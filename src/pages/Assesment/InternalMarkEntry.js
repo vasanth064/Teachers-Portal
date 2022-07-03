@@ -198,6 +198,7 @@ const InternalMarkEntry = () => {
                       'Countinous Assessment 1',
                       'Countinous Assessment 2',
                       'Countinous Assessment 3',
+                      'Laboratory',
                     ]}
                     style={{ width: '100%' }}
                   />
