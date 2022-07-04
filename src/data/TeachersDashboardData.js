@@ -80,11 +80,11 @@ const TeachersDashboardData = [
               URL: 'postedLeaves',
               page: <PostedLeave />,
             },
-            {
-              title: 'Attendance Review',
-              URL: 'attendancereview',
-              page: <AttendanceReview />,
-            },
+            // {
+            //   title: 'Attendance Review',
+            //   URL: 'attendancereview',
+            //   page: <AttendanceReview />,
+            // },
             {
               title: 'Attendance Report',
               URL: 'attendancereport',
