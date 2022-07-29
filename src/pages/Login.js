@@ -35,8 +35,8 @@ const Login = () => {
           </div>
           <Formik
             initialValues={{
-              email: '',
-              password: '',
+              email: 'ptv.dce@psgpolytech.ac.in',
+              password: '08dxt01',
             }}
             onSubmit={(values) => {
               emailPasswordSignIn(values.email, values.password);
