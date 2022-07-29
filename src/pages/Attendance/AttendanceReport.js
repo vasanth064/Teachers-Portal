@@ -18,7 +18,7 @@ const AttendanceReport = () => {
   const [attendance, setAttendance] = useState(null);
   const { getTheme } = useUI();
   const [batch, setBatch] = useState('2019');
-  const [date, setDate] = useState('');
+  const [date, setDate] = useState('2022-07-04');
   const handleBatchSelect = (value) => setBatch(value);
   const getAttendance = async () => {
     const data = await getData('attendance', [

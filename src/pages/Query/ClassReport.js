@@ -23,7 +23,7 @@ const ClassReport = () => {
   const [reportType, setReportType] = useState('');
   const [subReportType, setSubReportType] = useState('');
   const [batch, setBatch] = useState('2019');
-  const [courseCode, setCourseCode] = useState('');
+  const [courseCode, setCourseCode] = useState('Z18601');
   const [assessmentData, setAssessmentData] = useState(null);
   const [newResults, setNewResults] = useState(null);
   const [rollno, setRollno] = useState(null);
@@ -143,7 +143,7 @@ const ClassReport = () => {
                 name='Batch'>
                 <FormSelect
                   handleFormSelect={handleBatchSelect}
-                  data={['select', '2019', '2020', '2021']}
+                  data={['2019', '2020', '2021']}
                   style={{ width: '100%' }}
                 />
               </FormLabel>
@@ -155,6 +155,7 @@ const ClassReport = () => {
                 <SearchBar
                   icon={<MdOutlineMenuBook size='2.5rem' />}
                   name='courseCode'
+                  value='Z18601'
                   placeholder='Course Code'
                   onChange={debounce((e) => setCourseCode(e.target.value), 500)}
                 />
